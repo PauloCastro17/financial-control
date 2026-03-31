@@ -2,13 +2,9 @@
 
 - Este projeto baseia-se em um estudo pessoal sobre o framework **Laravel**. Será um controle financeiro pessoal
 
-
 ## ✅ To-do List
 - ✅ Criação do projeto e submetido ao GitHub
-
-## ⏳ "TimeLine" do projeto
-
-
+- ✅ Tela de Login Criada com sucesso
 
 ## ⚙️ Tecnologias utilizadas/a utilizar.
 - Laravel
