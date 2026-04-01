@@ -4,7 +4,10 @@
 
 ## ✅ To-do List
 - ✅ Criação do projeto e submetido ao GitHub
-- ✅ Tela de Login Criada com sucesso
+- ✅ Tela de login criada 
+- ✅ Tela de cadastro criada 
+- ✅ Funcionalidade de Login, Logout e Cadastro
+- ✅ Ajustes nas telas de login e cadastro (responsividade)
 
 ## ⚙️ Tecnologias utilizadas/a utilizar.
 - Laravel
