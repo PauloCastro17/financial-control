@@ -11,13 +11,7 @@
 </head>
 <body class="bg-[#1C1A2E]">
     <section class="flex min-h-screen sm:flex-col lg:flex-row">
-        <div class="lg:basis-7xl flex flex-col min-h-screen">
-            {{ $slot }}
-        </div>
-
-        <div class="lg:basis-7xl flex justify-center w-dvw items-center">
-            <img class="max-w-[34.5rem] " src="{{ asset('images/image_auth_layout.svg') }}" alt="IMAGEM_AUTH_LOGIN_REGISTER"/>
-        </div>
+        {{ $slot }}
     </section>
 </body>
 </html>
