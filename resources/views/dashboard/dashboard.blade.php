@@ -1,8 +1,14 @@
 <x-base-layout>
-    @session('success')
-    <p>{{ session('success') }}</p>
-    @endsession
 
-    <h1>DASHBOARD</h1>
+    <section>
+        @session('success')
+        <p>{{ session('success') }}</p>
+        @endsession
+
+        <x-header pag-menu="Dashboard"/>
+
+
+        {{--<h1>DASHBOARD</h1>--}}
+    </section>
 
 </x-base-layout>

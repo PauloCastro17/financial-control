@@ -10,7 +10,10 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-[#1C1A2E]">
-    <section class="flex min-h-screen sm:flex-col lg:flex-row">
+    <section class="flex min-h-screen max-lg:flex-col lg:flex-row max-lg:justify-center">
+
+        <x-sidebar sub-pag-menu="dashboard"/>
+
         {{ $slot }}
     </section>
 </body>

@@ -12,7 +12,7 @@
         <form class="flex flex-col justify-between gap-5 text-lg " method="POST" action="{{ route('auth.register') }}">
 
             <div class="flex flex-col">
-                <label for="name">Nome</label>
+                <label class="font-bold" for="name">Nome</label>
                 <input required name="name" type="text" placeholder="Insira seu nome"  class="w-full border p-3 border-gray-600 rounded-xl"/>
 
                 @error('name')
@@ -25,7 +25,7 @@
             </div>
 
             <div class="flex flex-col">
-                <label for="email">E-mail</label>
+                <label class="font-bold" for="email">E-mail</label>
                 <input required name="email" type="email" placeholder="Insira seu E-mail"  class="w-full border p-3 border-gray-600 rounded-xl"/>
 
                 @error('email')
@@ -37,7 +37,7 @@
             </div>
 
             <div class="flex flex-col">
-                <label for="password">Senha</label>
+                <label class="font-bold" for="password">Senha</label>
                 <input required name="password" type="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl"/>
 
                 @error('password')
@@ -49,7 +49,7 @@
             </div>
 
             <div class="flex flex-col">
-                <label for="password_confirmation">Confirmar senha</label>
+                <label class="font-bold" for="password_confirmation">Confirmar senha</label>
                 <input required name="password_confirmation" type="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl"/>
 
                 @error('password_confirmation')
@@ -62,10 +62,10 @@
 
 
             <div class="flex flex-col">
-                <input type="submit" value="Entrar"  class="w-full  border border-gray-600  p-3 rounded-xl bg-[#C8EE44] hover:bg-[#A0B84B] transition text-[#1B212D] text-lg font-medium"/>
+                <input type="submit" value="Entrar"  class="w-full font-bold border border-gray-600  p-3 rounded-xl bg-[#C8EE44] hover:bg-[#A0B84B] transition text-[#1B212D] text-lg"/>
             </div>
 
-            <span class="text-center"> Já possui uma conta? <a href="{{ route('login') }}" class="underline cursor-pointer">Fazer login</a></span>
+            <span class="text-center text-[#929EAE]"> Já possui uma conta? <a href="{{ route('login') }}" class="underline cursor-pointer text-white font-bold">Fazer login</a></span>
 
         </form>
     </div>

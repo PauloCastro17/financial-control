@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -9,4 +12,18 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+* {
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.active-btn-sidebar {
+    background-color: #C8EE44;
+    color: #1B212D;
+}
+
+.active-btn-sidebar:hover{
+    background-color: #A0B84B;
+    color: #1B212D;
 }

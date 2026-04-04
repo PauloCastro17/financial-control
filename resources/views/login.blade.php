@@ -13,7 +13,7 @@
             @csrf
 
             <div class="flex flex-col gap-1">
-                <span>E-mail</span>
+                <label for="email" class="font-bold">E-mail</label>
                 <input required type="email" name="email" placeholder="Insira seu E-mail"  class="w-full border p-3 border-gray-600 rounded-xl @error('email') border-red-500 @enderror"/>
 
                 @error('email')
@@ -26,7 +26,7 @@
             </div>
 
             <div class="flex flex-col gap-1">
-                <span>Senha</span>
+                <label for="password" class="font-bold">Senha</label>
                 <input required type="password" name="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl @error('password') border-red-500 @enderror"/>
 
                 @error('password')
@@ -39,10 +39,10 @@
             </div>
 
             <div class="flex flex-col">
-                <input type="submit" value="Entrar"  class="w-full cursor-pointer border border-gray-600  p-3 rounded-xl bg-[#C8EE44] hover:bg-[#A0B84B] transition text-[#1B212D] text-lg font-medium"/>
+                <input type="submit" value="Entrar"  class="w-full cursor-pointer border border-gray-600  p-3 rounded-xl bg-[#C8EE44] hover:bg-[#A0B84B] transition text-[#1B212D] text-lg font-bold"/>
             </div>
 
-            <span class="text-center"> Não possui uma conta? <a href="{{ route('register') }}" class="underline cursor-pointer">Registre-se aqui</a></span>
+            <span class="text-center text-[#929EAE]"> Não possui uma conta? <a href="{{ route('register') }}" class="underline cursor-pointer font-bold text-white">Registre-se aqui</a></span>
 
         </form>
     </div>
