@@ -27,3 +27,13 @@
     background-color: #A0B84B;
     color: #1B212D;
 }
+
+.card-dashboard:hover{
+    background-color: #282541;
+}
+
+.card-dashboard:hover span,
+.card-dashboard:hover i{
+    background-color: #353255;
+    color: #C8EE44;
+}
