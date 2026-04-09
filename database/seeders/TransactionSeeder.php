@@ -14,12 +14,6 @@ class TransactionSeeder extends Seeder
     public function run(): void
     {
         //
-        Transaction::query()->create([
-            'name' => 'Cartão Nubank',
-            'user_id' => 1,
-            'type' => 'INVOICE',
-            'value' => 500,
-            'status' => 'PENDING'
-        ]);
+        Transaction::factory()->count(10)->create(['user_id' => 1]);
     }
 }

@@ -19,6 +19,10 @@ class TransactionFactory extends Factory
     {
         return [
             //
+            'name' => fake()->randomElement(["MERCANTIL", "ALUGUEL", "ÁGUA", "ENERGIA", "FACULDADE"]),
+            'type' => fake()->randomElement(['BANK_TRANSFER', 'CREDIT_CARD', 'DEBIT_CARD', 'PIX']),
+            'value' => fake()->randomFloat(2, 10, 1000),
+            'status' => fake()->randomElement(['PENDING', 'COMPLETED'])
         ];
     }
 }

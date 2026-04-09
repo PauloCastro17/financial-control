@@ -13,12 +13,6 @@ class PaymentSeeder extends Seeder
      */
     public function run(): void
     {
-        Payment::query()->create([
-            'name' => 'Sálario teste',
-            'user_id' => 1,
-            'type' => 'WAGE',
-            'value' => 1500.18,
-            'status' => 'PENDING'
-        ]);
+        Payment::factory()->count(10)->create(['user_id' => 1]);
     }
 }
