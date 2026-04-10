@@ -3,34 +3,33 @@
         <img src="{{ asset('/images/logo.svg') }}" class="w-32" alt="logo_sidebar"/>
 
         <nav class="flex flex-col gap-2">
-            <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "dashboard" ? "active-btn-sidebar" : ""  }}">
-                <i class="fa-solid fa-house "></i>
-                <a class=" font-bold">Dashboard</a>
-            </div>
+            <a href="{{ route('site.dashboard') }}">
+                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "dashboard" ? "active-btn-sidebar" : ""  }}">
+                    <i class="fa-solid fa-house "></i>
+                    <span  class=" font-bold">Dashboard</span>
+                </div>
+            </a>
 
-            <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "payments" ? "active-btn-sidebar" : ""  }}">
-                <i class="fa-solid fa-money-bill"></i>
-                <a class=" font-bold">Pagamentos</a>
-            </div>
-
-            <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "pending-issues" ? "active-btn-sidebar" : ""  }}">
-                <i class="fa-solid fa-receipt"></i>
-                <a class=" font-bold">Pendências</a>
-            </div>
-
-            <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "configs" ? "active-btn-sidebar" : ""  }}">
-                <i class="fa-solid fa-gear "></i>
-                <a class=" font-bold">Configurações</a>
-            </div>
-
+            <a href="{{ route('site.payments') }}">
+                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "payments" ? "active-btn-sidebar" : ""  }}">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <span  class=" font-bold">Pagamentos</span>
+                </div>
+            </a>
+            <a >
+                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "pending-issues" ? "active-btn-sidebar" : ""  }}">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span class=" font-bold">Pendências</span>
+                </div>
+            </a>
+            <a>
+                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "configs" ? "active-btn-sidebar" : ""  }}">
+                    <i class="fa-solid fa-gear "></i>
+                    <span class=" font-bold">Configurações</span>
+                </div>
+            </a>
 
         </nav>
     </div>
 
-    <div class="flex flex-col gap-5 justify-end">
-        <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <a href="{{ route('auth.logout') }}" class=" font-bold">Sair</a>
-        </div>
-    </div>
 </section>
