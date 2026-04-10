@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[#1C1A2E]">
-    <section class="flex min-h-screen max-lg:flex-col lg:flex-row max-lg:justify-center">
+    <section class="flex min-h-screen w-full max-lg:flex-col lg:flex-row max-lg:justify-center">
 
         <x-sidebar :sub-pag-menu="$subPagMenu" />
 

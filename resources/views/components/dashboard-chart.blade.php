@@ -1,4 +1,4 @@
-<section class="p-4 ml-4 flex flex-row border rounded-lg w-315 items-center justify-center border-[#282541]">
+<section class="m-5 p-4 flex flex-row border rounded-lg items-center justify-center border-[#282541]">
 
     <div id="chart"></div>
 
@@ -15,17 +15,18 @@
     document.addEventListener('DOMContentLoaded', function () {
 
         const options = {
-            chart: { type: 'bar', height: 300, width:600},
+            chart: { type: 'bar', height: 300, width:400},
             series: [{ name: 'Pagamentos Recebidos', data: payments }],
             xaxis: { type: 'category' },
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '50%',
                     borderRadius: 5,
                     borderRadiusApplication: 'end'
                 },
             },
+            colors: ['#29A073'],
             title: {
                 text: 'Pagamentos Recebidos', // título do gráfico
                 align: 'center',        // centralizado
@@ -38,18 +39,18 @@
         };
 
         const options2 = {
-            chart: { type: 'bar', height: 300, width:600},
+            chart: { type: 'bar', height: 300, width:400},
             series: [{ name: 'Transações Feitas', data: transactions }],
             xaxis: { type: 'category' },
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '55%',
+                    columnWidth: '50%',
                     borderRadius: 5,
                     borderRadiusApplication: 'end'
                 },
             },
-            colors: ['#FF0000'],
+            colors: ['#E5363D'],
             title: {
                 text: 'Transações Feitas', // título do gráfico
                 align: 'center',        // centralizado

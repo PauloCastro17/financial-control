@@ -14,6 +14,7 @@ class DashboardController extends Controller
     {
 
         $payments = auth()->user()->payments()
+            ->where("status", "COMPLETED")
             ->selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, SUM(value) as total')
             ->groupBy('month')
             ->orderBy('month')
@@ -24,6 +25,7 @@ class DashboardController extends Controller
             ]);
 
         $transactions = auth()->user()->transactions()
+            ->where("status", "COMPLETED")
             ->selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, SUM(value) as total')
             ->groupBy('month')
             ->orderBy('month')
