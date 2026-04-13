@@ -22,5 +22,7 @@
             <img class="lg:max-w-[34rem] md:max-w-[25rem]" src="{{ asset('images/image_auth_layout.svg') }}" alt="IMAGEM_AUTH_LOGIN_REGISTER"/>
         </div>
     </section>
+
+    @vite(['resources/js/app.js'])
 </body>
 </html>

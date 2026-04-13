@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('type');
-            $table->float('value');
-            $table->string('status');
-            $table->boolean('recurrence')->default(false);
+            $table->string('type'); //income e expense
+            $table->float('amount');
+            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete(); //criar category_id para referenciar qual a conta
+            $table->string('description');
+            $table->dateTime('transaction_date')->nullable();
+            $table->string('status'); //pending, completed, failed
             $table->timestamps();
         });
     }

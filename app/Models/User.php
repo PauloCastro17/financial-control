@@ -30,9 +30,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function payments() : HasMany
+    public function categories() : HasMany
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Category::class);
     }
 
     public function transactions() : HasMany

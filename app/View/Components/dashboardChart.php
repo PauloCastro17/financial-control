@@ -11,7 +11,7 @@ class dashboardChart extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public null|array|object $payments = null, public null|array|object $transactions = null)
+    public function __construct(public null|array|object $payments = null, public null|array|object $transactions = null, public null|array|object $categories = null)
     {
         //
     }
@@ -21,6 +21,6 @@ class dashboardChart extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.dashboard-chart');
+        return view('dashboard.dashboard-chart');
     }
 }

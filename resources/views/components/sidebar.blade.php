@@ -10,22 +10,10 @@
                 </div>
             </a>
 
-            <a href="{{ route('site.payments') }}">
+            <a href="">
                 <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "payments" ? "active-btn-sidebar" : ""  }}">
                     <i class="fa-solid fa-money-bill"></i>
-                    <span  class=" font-bold">Pagamentos</span>
-                </div>
-            </a>
-            <a >
-                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "pending-issues" ? "active-btn-sidebar" : ""  }}">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span class=" font-bold">Pendências</span>
-                </div>
-            </a>
-            <a>
-                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "configs" ? "active-btn-sidebar" : ""  }}">
-                    <i class="fa-solid fa-gear "></i>
-                    <span class=" font-bold">Configurações</span>
+                    <span  class=" font-bold">Transações</span>
                 </div>
             </a>
 

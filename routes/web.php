@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +17,5 @@ Route::post('/novo-usuario', [RegisterController::class, 'store'])->name('auth.r
 Route::middleware(['auth'])->group(function () {
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
-    //PAGAMENTOS
-    Route::get('/pagamentos', [PaymentController::class, 'index'])->name('site.payments');
 });
 

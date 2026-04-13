@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Database\Factories\PaymentFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['name', 'type', 'status', 'value', 'recurrence'])]
-class Payment extends Model
+class Category extends Model
 {
-    /** @use HasFactory<PaymentFactory> */
+    /** @use HasFactory<CategoryFactory> */
     use HasFactory;
 
     public function user() :BelongsTo

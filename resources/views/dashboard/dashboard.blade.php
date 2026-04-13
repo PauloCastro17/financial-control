@@ -45,7 +45,7 @@
 
         </section>
 
-        <x-dashboard-chart :payments="$payments ?? null" :transactions="$transactions ?? null"/>
+        <x-dashboard-chart :payments="$payments ?? null" :transactions="$transactions ?? null" :categories="$categories ?? null"/>
 
         {{--TRANSAÇÕES RECENTES--}}
         <section class="p-7 m-5 flex flex-col border rounded-lg border-[#282541]">
@@ -90,7 +90,7 @@
 
                     <tr>
                         <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center">
-                            <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#29A073] fa-money-bill-transfer"></i></span>
+                            <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#E5363D] fa-money-bill-transfer"></i></span>
                             ENERGIAssss
                         </td>
                         <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
@@ -98,64 +98,6 @@
                         <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
                         <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
                     </tr>
-
-
-                </tbody>
-            </table>
-
-        </section>
-
-        {{--TRANSFERÊNCIAS RECENTES--}}
-        <section class="p-7 m-5 flex flex-col border rounded-lg border-[#282541]">
-            <div class="flex items-center justify-between">
-                <h1 class="text-xl font-bold">Tranferências Recentes</h1>
-
-                <a class=" font-semibold text-[#29A073] flex items-center">Ver mais <i
-                        class=" fa-solid fa-chevron-right text-sm"></i></a>
-            </div>
-            <table class="table-fixed w-full mt-3">
-                <thead class="text-[#78778B] uppercase">
-                <tr>
-                    <th class="py-3 w-1/5">Nome transação</th>
-                    <th class="py-3 w-1/5">Tipo</th>
-                    <th class="py-3 w-1/5">Valor</th>
-                    <th class="py-3 w-1/5">Situação</th>
-                    <th class="py-3 w-1/5">Data</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center">
-                        <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#E5363D] fa-money-bill-transfer"></i></span>
-                        ENERGIAssss
-                    </td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
-                </tr>
-
-                <tr>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center">
-                        <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#E5363D] fa-money-bill-transfer"></i></span>
-                        ENERGIAssss
-                    </td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
-                </tr>
-
-                <tr>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center">
-                        <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#E5363D] fa-money-bill-transfer"></i></span>
-                        ENERGIAssss
-                    </td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3">1961</td>
-                    <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
-                </tr>
 
 
                 </tbody>
