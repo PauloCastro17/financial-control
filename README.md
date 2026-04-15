@@ -15,6 +15,8 @@
 ## ⚙️ Tecnologias utilizadas/a utilizar.
 - Laravel
 - Tailwind
+- BootsTrap Icons
+- Font Awesome Icons
 - MariaDB (banco de dados)
 
 ## ⚒️ Ferramentas utilizadas/a utilizar.

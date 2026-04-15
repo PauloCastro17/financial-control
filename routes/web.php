@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransactionController as TransactionControllerAlias;
 use Illuminate\Support\Facades\Route;
 
 //LOGIN
@@ -17,5 +18,7 @@ Route::post('/novo-usuario', [RegisterController::class, 'store'])->name('auth.r
 Route::middleware(['auth'])->group(function () {
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
+    //TRANSAÇÕES
+    Route::get('/transacoes', [TransactionControllerAlias::class, 'index'])->name('site.transactions');
 });
 

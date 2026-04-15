@@ -18,17 +18,17 @@
                 <i class="fa-solid fa-caret-up text-4xl absolute -top-5 right-0 text-[#201E34]"></i>
                 <div class="flex flex-col items-center py-4 gap-2">
                     <img class="w-15" src="{{ asset("/images/user_photo.png") }}" alt="user_photo">
-                    <span class="wrap-anywhere text-center w-52" title="{{ auth()->user()->name }}">{{ auth()->user()->name }}</span>
+                    <span class="wrap-anywhere text-center w-52 text-white" title="{{ auth()->user()->name }}">{{ auth()->user()->name }}</span>
                 </div>
 
                 <hr class="border-[#282541] border-dashed">
 
-                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition">
+                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition text-white ">
                         <i class="fa-solid fa-user"></i>
                         <span>Meu perfil</span>
                     </a>
 
-                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition">
+                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition text-white">
                         <i class="fa-solid fa-gear"></i>
                         <span>Configurações</span>
                     </a>
@@ -36,7 +36,7 @@
                 <hr class="border-[#282541]">
 
                 <div class="px-3 py-1 my-3 flex justify-center text-center ">
-                    <a href="{{ route("auth.logout") }}" class="w-[80%] bg-[#1C1A2E] border-2 border-[#282541] p-2 rounded-sm shadow-xl/20 cursor-pointer hover:bg-[#1C1A2E]/40 transition">
+                    <a href="{{ route("auth.logout") }}" class="w-[80%] bg-[#1C1A2E] border-2 border-[#282541] p-2 rounded-sm shadow-xl/20 cursor-pointer hover:bg-[#1C1A2E]/40 transition text-white">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <span class=" font-bold">Sair</span>
                     </a>
