@@ -18,4 +18,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function categories() :BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

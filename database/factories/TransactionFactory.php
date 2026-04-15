@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,10 +20,12 @@ class TransactionFactory extends Factory
     {
         return [
             //
-            'name' => fake()->randomElement(["MERCANTIL", "ALUGUEL", "ÁGUA", "ENERGIA", "FACULDADE"]),
-            'type' => fake()->randomElement(['BANK_TRANSFER', 'CREDIT_CARD', 'DEBIT_CARD', 'PIX']),
-            'value' => fake()->randomFloat(2, 10, 1000),
-            'status' => fake()->randomElement(['PENDING', 'COMPLETED'])
+            'type' => fake()->randomElement(["INCOME", "EXPENSE"]),
+            'amount' => fake()->randomFloat(2, 10, 1000),
+            'description' => fake()->realText(50),
+            'transaction_date' => fake()->dateTimeBetween('2026-01-01', 'now'),
+            'status' => fake()->randomElement(["PENDING", "COMPLETED"]),
+            'category_id' => Category::query()->inRandomOrder()->first()->id
         ];
     }
 }

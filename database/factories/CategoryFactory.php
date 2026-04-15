@@ -19,6 +19,8 @@ class CategoryFactory extends Factory
     {
         return [
             //
+            'name' => $this->faker->randomElement(["MERCANTIL", "ÁGUA", "LUZ", "SÁLARIO", "PROJETO PESSOAL"]),
+            'type' => $this->faker->randomElement(["INCOME", "EXPENSE"]),
         ];
     }
 }
