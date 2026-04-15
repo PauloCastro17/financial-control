@@ -13,8 +13,6 @@ class DashboardController extends Controller
     public function index(): View
     {
 
-
-
         return view('dashboard.dashboard', [
             "subPagMenu" => "dashboard",
             /*"categories" => $categories,

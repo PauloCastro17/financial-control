@@ -1,5 +1,5 @@
 <header class="flex justify-between items-center px-7 py-4">
-    <h1 class="text-3xl font-bold">{{ $pagMenu }}</h1>
+    <h1 class="text-3xl font-bold text-white">{{ $pagMenu }}</h1>
 
     <div class="flex items-center gap-6">
         <!--FILTRO-->

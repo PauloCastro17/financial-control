@@ -11,7 +11,7 @@
             series: [
                 {
                     name: 'Payments',
-                    data: @json($payments)
+                    data: @json($payments)v
                 },
                 {
                     name: 'Transactions',

@@ -11,7 +11,7 @@
 
         <form class="flex flex-col justify-between gap-5 text-lg " method="POST" action="{{ route('auth.register') }}">
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white    ">
                 <label class="font-bold" for="name">Nome</label>
                 <input required name="name" type="text" placeholder="Insira seu nome"  class="w-full border p-3 border-gray-600 rounded-xl"/>
 
@@ -24,7 +24,7 @@
 
             </div>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 <label class="font-bold" for="email">E-mail</label>
                 <input required name="email" type="email" placeholder="Insira seu E-mail"  class="w-full border p-3 border-gray-600 rounded-xl"/>
 
@@ -36,7 +36,7 @@
                 @enderror
             </div>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 <label class="font-bold" for="password">Senha</label>
                 <input required name="password" type="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl"/>
 
@@ -48,7 +48,7 @@
                 @enderror
             </div>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col text-white">
                 <label class="font-bold" for="password_confirmation">Confirmar senha</label>
                 <input required name="password_confirmation" type="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl"/>
 

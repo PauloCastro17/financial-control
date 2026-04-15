@@ -12,7 +12,7 @@
         <form class="flex flex-col justify-between gap-5 text-lg " method="POST" action="{{ route('auth.login') }}">
             @csrf
 
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 text-white">
                 <label for="email" class="font-bold">E-mail</label>
                 <input required type="email" name="email" placeholder="Insira seu E-mail"  class="w-full border p-3 border-gray-600 rounded-xl @error('email') border-red-500 @enderror"/>
 
@@ -25,7 +25,7 @@
 
             </div>
 
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 text-white">
                 <label for="password" class="font-bold">Senha</label>
                 <input required type="password" name="password" placeholder="********"  class="w-full border border-gray-600 p-3 rounded-xl @error('password') border-red-500 @enderror"/>
 
