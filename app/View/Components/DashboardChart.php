@@ -11,7 +11,7 @@ class DashboardChart extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public null|array|object $payments = null, public null|array|object $transactions = null, public null|array|object $categories = null)
+    public function __construct(public null|array|object $months = null, public null|array|object $income = null, public null|array|object $expense = null)
     {
         //
     }

@@ -45,49 +45,47 @@
 
         </section>
 
-        <x-dashboard-chart :payments=" null" :transactions=" null" :categories=" null"/>
+        <x-dashboard-chart :months=" $months ?? null" :income=" $income ?? null" :expense=" $expense ?? null"/>
 
         {{--TRANSAÇÕES RECENTES--}}
         <section class="p-7 m-5 flex flex-col border rounded-lg border-[#282541]">
             <div class="flex items-center justify-between">
                 <h1 class="text-xl font-bold text-white">Transações Recentes</h1>
 
-                <a class=" font-semibold text-[#29A073] flex items-center">Ver mais <i
-                        class=" fa-solid fa-chevron-right text-sm"></i></a>
+                <a href="{{ route('site.transactions') }}" class=" font-semibold text-[#29A073] flex items-center hover:text-[#29A073]/70 transition">Ver mais
+                    <i class=" fa-solid fa-chevron-right text-sm"></i></a>
             </div>
             <table class="table-fixed w-full mt-3">
                 <thead class="text-[#78778B] uppercase">
                     <tr>
-                        <th class="py-3 w-1/5">Nome transação</th>
-                        <th class="py-3 w-1/5">Tipo</th>
-                        <th class="py-3 w-1/5">Valor</th>
-                        <th class="py-3 w-1/5">Situação</th>
-                        <th class="py-3 w-1/5">Data</th>
+                        <th class="py-3 w-1/4 text-start">Nome transação</th>
+                        <th class="py-3 w-1/4 text-start">Tipo</th>
+                        <th class="py-3 w-1/4 text-start">Valor</th>
+                        <th class="py-3 w-1/4 text-start">Data</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center text-white">
-                            <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#29A073] fa-money-bill-transfer"></i></span>
-                            ENERGIAssss
-                        </td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-white">1961</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-white">1961</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
-                    </tr>
 
-
+                @foreach($transactions as $transaction)
                     <tr>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 flex items-center gap-2 justify-center text-white">
-                            <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center"><i class="fa-solid text-xl text-[#E5363D] fa-money-bill-transfer"></i></span>
-                            ENERGIAssss
+                        <td class="text-start border-b border-[#201E34] py-4 text-white">
+                            <div class="flex justify-start">
+                                <div class="flex items-center gap-2 justify-center">
+                                <span class="w-10 h-10 rounded-lg bg-[#292642] flex items-center justify-center">
+                                    <i class="fa-solid text-xl {{ $transaction->type_color_transaction }} fa-money-bill-transfer"></i>
+                                </span>
+                                    {{ $transaction->category->name }}
+                                </div>
+                            </div>
                         </td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">Malcolm Lockyer</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-white">1961</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-white">1961</td>
-                        <td class="text-center border-b-2 border-[#201E34] py-3 text-[#78778B]">1961</td>
+                        <td class="text-start border-b border-[#201E34] py-4 text-[#78778B]">{{ $transaction->type_transaction }}</td>
+                        <td class="text-start border-b border-[#201E34] py-4 text-white">${{ $transaction->amount }}</td>
+                        <td class="text-start border-b border-[#201E34] py-4 ">
+                            <p class="text-white">{{ $transaction->initial_date }}</p>
+                            <p class="text-[#78778B]">às {{ $transaction->final_date }}</p>
+                        </td>
                     </tr>
+                @endforeach
 
 
                 </tbody>

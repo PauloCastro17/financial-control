@@ -6,20 +6,24 @@
 
     document.addEventListener('DOMContentLoaded', function () {
 
+        const labels = @json($months);
+        const income = @json($income);
+        const expense = @json($expense);
+
         const options = {
             chart: { type: 'bar', height: 350, width:1200},
             series: [
                 {
-                    name: 'Payments',
-                    data: @json($payments)v
+                    name: 'Entradas',
+                    data: income
                 },
                 {
-                    name: 'Transactions',
-                    data: @json($transactions)
+                    name: 'Saídas',
+                    data: expense
                 }
             ],
             xaxis: {
-                categories: @json($categories)
+                categories: labels
             },
             plotOptions: {
                 bar: {

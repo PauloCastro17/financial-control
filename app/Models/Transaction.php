@@ -68,7 +68,7 @@ class Transaction extends Model
             'COMPLETED', 'PAID' => 'Pago',
             'PENDING' => 'Pendente',
             'UNPAID' => 'Não Pago',
-            default => 'Desconecido',
+            default => 'Erro',
         };
     }
 
@@ -78,6 +78,15 @@ class Transaction extends Model
             'COMPLETED', 'PAID' => "bg-[#1A3131] text-[#29A073]",
             'PENDING' => "bg-[#30292F] text-[#F2994A]",
             default => "bg-[#442121] text-[#E5363D]"
+        };
+    }
+
+    public function getTypeColorTransactionAttribute(): string
+    {
+        return match ($this->type) {
+            'INCOME' => 'text-[#29A073]',
+            'EXPENSE' => 'text-[#E5363D]',
+            default => 'Desconecido',
         };
     }
 }
