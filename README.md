@@ -11,6 +11,8 @@
 - ✅ Funcionalidade de Login, Logout e Cadastro
 - ✅ Ajustes nas telas de login e cadastro (responsividade)
 - ✅ Sidebar lateral de telas pronto
+- ✅ Tela de Dashboard Criada
+- ✅ Tela transações feita
 
 ## ⚙️ Tecnologias utilizadas/a utilizar.
 - Laravel
