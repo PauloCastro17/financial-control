@@ -10,11 +10,15 @@ class TransactionController extends Controller
     //
     public function index() :View
     {
+
+        $transactions = auth()->user()
+            ->transactions()
+            ->with('category')
+            ->get();
+
         return view('transactions.transactions', [
             "subPagMenu" => "transactions",
-            /*"categories" => $categories,
-            "payments" => $paymentsSeries,
-            "transactions" => $transactionsSeries,*/
+            "transactions" => $transactions
         ]);
     }
 }

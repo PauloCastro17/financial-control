@@ -4,23 +4,80 @@ namespace App\Models;
 
 use Database\Factories\TransactionFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['name', 'type', 'status', 'value', 'recurrence'])]
+use \Carbon\Carbon;
+
+#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date'])]
 class Transaction extends Model
 {
     /** @use HasFactory<TransactionFactory> */
     use HasFactory;
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'transaction_date' => 'datetime',
+        ];
+    }
 
     public function user() :BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function categories() :BelongsTo
+    public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getInitialDateAttribute(): string
+    {
+        return $this->transaction_date
+            ->locale('pt_BR')
+            ->translatedFormat('d M Y');
+    }
+
+    public function getFinalDateAttribute(): string
+    {
+        return $this->transaction_date
+            ->locale('pt_BR')
+            ->translatedFormat('H:i');
+    }
+
+    public function getTypeTransactionAttribute(): string
+    {
+        return match ($this->type) {
+            'INCOME' => 'Entrada',
+            'EXPENSE' => 'Saída',
+            default => 'Desconecido',
+        };
+    }
+
+    public function getStatusTransactionAttribute(): string
+    {
+        return match ($this->status) {
+            'COMPLETED', 'PAID' => 'Pago',
+            'PENDING' => 'Pendente',
+            'UNPAID' => 'Não Pago',
+            default => 'Desconecido',
+        };
+    }
+
+    public function getStatusColorTransactionAttribute(): string
+    {
+        return match ($this->status) {
+            'COMPLETED', 'PAID' => "bg-[#1A3131] text-[#29A073]",
+            'PENDING' => "bg-[#30292F] text-[#F2994A]",
+            default => "bg-[#442121] text-[#E5363D]"
+        };
     }
 }

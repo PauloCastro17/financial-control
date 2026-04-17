@@ -12,7 +12,7 @@
 
             <a href="{{ route('site.transactions') }}">
                 <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "transactions" ? "active-btn-sidebar" : ""  }}">
-                    <i class="fa-solid fa-money-bill"></i>
+                    <i class="fa-solid fa-money-check-dollar"></i>
                     <span  class=" font-bold">Transações</span>
                 </div>
             </a>

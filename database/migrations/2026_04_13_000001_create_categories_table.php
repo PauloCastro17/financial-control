@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('type'); //income e expense
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
