@@ -1,4 +1,4 @@
-<x-base-layout :sub-pag-menu="$subPagMenu">
+<x-base-layout sub-pag-menu="transactions">
 
     <main class="w-full ">
         @session('success')
@@ -15,7 +15,7 @@
                        class="text-xl w-96 p-3  rounded-xl bg-[#282541] border border-[#201E34] text-[#78778B] pl-12 "/>
             </div>
 
-            <button class="bg-[#C8EE44] text-[#1B212D] mr-10 flex items-center p-4 rounded-lg gap-2 w-54 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition" >
+            <button data-action="modal" data-modal-id="#modal-new-transaction" class="bg-[#C8EE44] text-[#1B212D] mr-10 flex items-center p-4 rounded-lg gap-2 w-54 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition" >
                 <i class="fa-solid fa-money-check-dollar text-xl "></i>
                 <p class="text-xl font-semibold">Criar transação</p>
             </button>
@@ -73,6 +73,9 @@
                 </tbody>
             </table>
         </section>
+
     </main>
+
+    @include('transactions.new-transaction')
 
 </x-base-layout>

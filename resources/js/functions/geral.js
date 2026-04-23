@@ -20,3 +20,37 @@ export function setupClickOutside() {
         }
     });
 }
+
+export function handleActions(){
+    document.addEventListener('click', (event) => {
+        const element = event.target.closest('[data-action]');
+        if (!element) return;
+
+        const action = element.dataset.action;
+
+
+        const actions = {
+            modal: () => {
+                const target = element.dataset.modalId;
+                openModal(target);
+            },
+        };
+
+        actions[action]?.();
+    });
+}
+
+
+function openModal(selector){
+    const modal = document.querySelector(selector);
+    if (!modal) return
+
+    modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+
+    const content = modal.querySelector('.modal-content');
+    content.classList.remove('scale-95');
+    content.classList.add('scale-100');
+
+}
+
+

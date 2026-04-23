@@ -50,9 +50,6 @@
         let chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
 
-        let chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
-        chart2.render();
-
 
     });
 </script>

@@ -1,4 +1,4 @@
-<x-base-layout :sub-pag-menu="$subPagMenu">
+<x-base-layout sub-pag-menu="dashboard">
 
     <main class="w-full ">
         @session('success')

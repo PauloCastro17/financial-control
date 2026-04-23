@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'tom-select/dist/css/tom-select.min.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -35,3 +36,26 @@
     background-color: #353255;
     color: #C8EE44;
 }
+
+/*
+SELECT TOM SELECT CONFIGS CSS
+*/
+.ts-control{
+    padding: 0.75rem;
+    background: transparent !important;
+    border-color: var(--color-gray-600);
+    color: inherit;
+    border-radius: 0.75rem;
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+}
+
+#select-beast-ts-control{
+    color: inherit;
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+}
+/*
+SELECT TOM SELECT CONFIGS CSS - FIM
+*/
+

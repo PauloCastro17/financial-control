@@ -34,10 +34,7 @@ class DashboardController extends Controller
         $income = $dataChart->pluck('income');
         $expense = $dataChart->pluck('expense');
 
-        return view('dashboard.dashboard', [
-            "subPagMenu" => "dashboard",
-            "transactions" => $transactions,
-        ], compact('months', 'income', 'expense'));
+        return view('dashboard.dashboard', compact('months', 'income', 'expense', 'transactions'));
 
     }
 

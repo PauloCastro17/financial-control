@@ -16,9 +16,11 @@ class TransactionController extends Controller
             ->with('category')
             ->get();
 
-        return view('transactions.transactions', [
-            "subPagMenu" => "transactions",
-            "transactions" => $transactions
-        ]);
+        return view('transactions.transactions', compact('transactions'));
+    }
+
+    public function create(Request $data)
+    {
+        dd($data->input());
     }
 }
