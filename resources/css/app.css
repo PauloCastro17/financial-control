@@ -50,6 +50,13 @@ SELECT TOM SELECT CONFIGS CSS
     line-height: var(--text-base--line-height);
 }
 
+#select-category-ts-control{
+    color: inherit;
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+
+}
+
 #select-beast-ts-control{
     color: inherit;
     font-size: var(--text-base);

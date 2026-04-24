@@ -79,3 +79,16 @@
     @include('transactions.new-transaction')
 
 </x-base-layout>
+
+
+@if ($errors->any())
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('modal-new-transaction');
+            const content = modal.querySelector('.modal-content');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+        });
+    </script>
+@endif

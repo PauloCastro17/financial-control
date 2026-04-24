@@ -20,6 +20,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
     //TRANSAÇÕES
     Route::get('/transacoes', [TransactionControllerAlias::class, 'index'])->name('site.transactions');
-    Route::post('/transacoes/nova', [TransactionControllerAlias::class, 'create'])->name('create.new.transaction');
+    Route::post('/transacoes/nova', [TransactionControllerAlias::class, 'store'])->name('create.new.transaction');
 });
 

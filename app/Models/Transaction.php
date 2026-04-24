@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use \Carbon\Carbon;
 
-#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date'])]
+#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date', 'user_id', 'status'])]
 class Transaction extends Model
 {
     /** @use HasFactory<TransactionFactory> */
@@ -39,15 +39,23 @@ class Transaction extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getInitialDateAttribute(): string
+    public function getInitialDateAttribute(): ?string
     {
+        if (!$this->transaction_date) {
+            return null;
+        }
+
         return $this->transaction_date
             ->locale('pt_BR')
             ->translatedFormat('d M Y');
     }
 
-    public function getFinalDateAttribute(): string
+    public function getFinalDateAttribute(): ?string
     {
+        if (!$this->transaction_date) {
+            return null;
+        }
+
         return $this->transaction_date
             ->locale('pt_BR')
             ->translatedFormat('H:i');
