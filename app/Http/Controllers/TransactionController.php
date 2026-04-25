@@ -17,9 +17,12 @@ class TransactionController extends Controller
         $transactions = auth()->user()
             ->transactions()
             ->with('category')
+            ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('transactions.transactions', compact('transactions'));
+        $categories = auth()->user()->categories()->get();
+
+        return view('transactions.transactions', compact('transactions', 'categories'));
     }
 
     public function store(Request $request)
@@ -51,7 +54,10 @@ class TransactionController extends Controller
             'description' => "TESE"
         ]);
 
-        return redirect()->route('site.transactions')->with('success', "Transação cadastrada com sucesso!, {$newTransaction->status}");
+        return redirect()->route('site.transactions')->with('alert', [
+            'message' => "Transação cadastrada com sucesso!",
+            'type' => 'success',
+        ]);
 
     }
 }

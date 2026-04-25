@@ -39,4 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             content.classList.add('scale-95');
         }
     });
+
+    document.addEventListener('click', (e) => {
+        const button = e.target.closest('[data-action="closeAlert"]');
+        if (!button) return;
+
+        const alert = button.closest('.alert');
+
+        alert.classList.add('hidden');
+    });
 });

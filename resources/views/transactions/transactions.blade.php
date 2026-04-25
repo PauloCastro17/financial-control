@@ -1,9 +1,7 @@
 <x-base-layout sub-pag-menu="transactions">
 
     <main class="w-full ">
-        @session('success')
-        <p>{{ session('success') }}</p>
-        @endsession
+
 
         <x-header pag-menu="Transações"/>
 
@@ -22,15 +20,20 @@
         </article>
 
 
+        @session('alert')
+            <x-alert :message="session('alert.message')" :type="session('alert.type')"/>
+        @endsession
         <section class=" max-w-[95%] ml-7 mb-5 flex justify-center items-center">
+
+
             <table class="table-fixed w-full mt-3 border-[#201E34] justify-center">
                 <thead class="text-[#78778B] uppercase">
                     <tr>
                         <th class="py-3 w-[30%] text-start">Nome da transação</th>
                         <th class="py-3 w-[20%] text-start">Tipo</th>
                         <th class="py-3 w-[20%] text-start">Valor</th>
-                        <th class="py-3 w-[30%] text-start">Data da transação</th>
                         <th class="py-3 w-[15%] text-start">Status</th>
+                        <th class="py-3 w-[25%] text-start">Data da transação</th>
                         <th class="py-3 w-[10%] text-center">Ações</th>
                     </tr>
                 </thead>
@@ -51,11 +54,15 @@
                         <td class="text-start border-b border-[#201E34] py-4 text-[#78778B]">{{ $transaction->type_transaction }}</td>
                         <td class="text-start border-b border-[#201E34] py-4 text-white">${{ $transaction->amount }}</td>
                         <td class="text-start border-b border-[#201E34] py-4 ">
-                            <p class="text-white">{{ $transaction->initial_date }}</p>
-                            <p class="text-[#78778B]">às {{ $transaction->final_date }}</p>
+                            <div class="w-[60%] p-3 rounded-lg text-center font-medium {{ $transaction->status_color_transaction }}">{{ $transaction->status_transaction }}</div>
                         </td>
                         <td class="text-start border-b border-[#201E34] py-4 ">
-                            <div class="w-[60%] p-3 rounded-lg text-center font-medium {{ $transaction->status_color_transaction }}">{{ $transaction->status_transaction }}</div>
+                            @if(!is_null($transaction->transaction_date ))
+                                <p class="text-white">{{ $transaction->initial_date }}</p>
+                                <p class="text-[#78778B]">às {{ $transaction->final_date }}</p>
+                            @else
+                                <p class="text-[#78778B]">Pagamento pendente!</p>
+                            @endif
                         </td>
                         <td class=" border-b border-[#201E34] py-4 text-center text-3xl">
                             <div class="flex justify-center items-center">
@@ -76,7 +83,7 @@
 
     </main>
 
-    @include('transactions.new-transaction')
+    @include('transactions.new-transaction', ['categories' => $categories])
 
 </x-base-layout>
 

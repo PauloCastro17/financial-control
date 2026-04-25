@@ -13,12 +13,16 @@
 
                 <div class="flex flex-col text-white gap-2">
                     <label class="font-bold" for="select-category">Categoria</label>
-                    <select name="category" id="select-category" placeholder="Escolha a categoria..." autocomplete="off" required>
-                        <option value="">Escolha a categoria...</option>
-                        <option value="4">Thomas Edison</option>
-                        <option value="1">Nikola</option>
-                        <option value="3">Nikola Tesla</option>
-                        <option value="5">Arnold Schwarzenegger</option>
+                    <select name="category" id="select-category" required>
+                        @if($categories->isEmpty())
+                            <option value="" disabled selected>Sem categorias cadastradas</option>
+                        @else
+                            <option value="">Escolha a categoria...</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        @endif
+
                     </select>
                     @error('category')
                     <span class="text-md text-red-400">
