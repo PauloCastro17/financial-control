@@ -48,4 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         alert.classList.add('hidden');
     });
+
+    document.addEventListener('click', (e) => {
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const content = dropdown.querySelector('.dropdown-menu');
+
+            const clicouDentro = content.contains(e.target);
+            const clicouBotaoAbrir = e.target.closest('[data-action="dropdown"]');
+
+            if (!clicouDentro && !clicouBotaoAbrir) {
+                content.classList.add('hidden');
+            }
+        });
+    });
 });

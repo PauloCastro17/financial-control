@@ -34,6 +34,9 @@ export function handleActions(){
                 const target = element.dataset.modalId;
                 openModal(target);
             },
+            dropdown: () => {
+                openDropdown(element);
+            },
         };
 
         actions[action]?.();
@@ -50,6 +53,19 @@ function openModal(selector){
     const content = modal.querySelector('.modal-content');
     content.classList.remove('scale-95');
     content.classList.add('scale-100');
+
+}
+
+function openDropdown(e){
+    const dropdown = e.closest('.dropdown')
+    const dropdownMenu = dropdown.querySelector('.dropdown-menu')
+
+    // Fecha todos
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.classList.add('hidden');
+    });
+
+    dropdownMenu.classList.toggle('hidden');
 
 }
 

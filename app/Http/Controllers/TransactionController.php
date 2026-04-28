@@ -11,13 +11,20 @@ use JetBrains\PhpStorm\NoReturn;
 class TransactionController extends Controller
 {
     //
-    public function index() :View
+    public function index(Request $request) :View
     {
+
+        $search = trim($request->input('search'));
 
         $transactions = auth()->user()
             ->transactions()
             ->with('category')
             ->orderBy('created_at', 'desc')
+            ->when($search, function ($query) use ($search) {
+                $query->whereHas('category', function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%");
+                });
+            })
             ->get();
 
         $categories = auth()->user()->categories()->get();

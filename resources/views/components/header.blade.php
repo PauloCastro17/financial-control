@@ -2,8 +2,6 @@
     <h1 class="text-3xl font-bold text-white">{{ $pagMenu }}</h1>
 
     <div class="flex items-center gap-6">
-        <!--FILTRO-->
-        <a class="text-[#929EAE] text-2xl cursor-pointer hover:opacity-50"><i class="fa-solid fa-filter"></i></a>
 
 
         <div class="relative">

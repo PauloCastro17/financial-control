@@ -9,8 +9,10 @@
         <article class="w-full pl-7 mb-5 justify-between flex items-center">
             <div class="flex items-center relative   ">
                 <i class="fa-brands fa-sistrix text-[#78778B] absolute left-2 text-2xl"></i>
-                <input type="text" placeholder="Procurar por nome"
-                       class="text-xl w-96 p-3  rounded-xl bg-[#282541] border border-[#201E34] text-[#78778B] pl-12 "/>
+                <form action="{{ route('site.transactions') }}" method="GET">
+                    <input type="text" name="search" value="{{ old('search', request('search')) }}"  placeholder="Procurar por nome"
+                           class="text-xl w-96 p-3  rounded-xl bg-[#282541] border border-[#201E34] text-[#78778B] pl-12 "/>
+                </form>
             </div>
 
             <button data-action="modal" data-modal-id="#modal-new-transaction" class="bg-[#C8EE44] text-[#1B212D] mr-10 flex items-center p-4 rounded-lg gap-2 w-54 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition" >
@@ -34,7 +36,7 @@
                         <th class="py-3 w-[20%] text-start">Valor</th>
                         <th class="py-3 w-[15%] text-start">Status</th>
                         <th class="py-3 w-[25%] text-start">Data da transação</th>
-                        <th class="py-3 w-[10%] text-center">Ações</th>
+                        <th class="py-3 w-[13%] text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,10 +67,24 @@
                             @endif
                         </td>
                         <td class=" border-b border-[#201E34] py-4 text-center text-3xl">
-                            <div class="flex justify-center items-center">
-                                <button class="w-15  text-white text-center cursor-pointer p-1 rounded-lg hover:bg-[#1E1C30] hover:text-[#78778B] transition">
+                            <div class="flex justify-center items-center dropdown relative">
+                                <button data-action="dropdown" class="w-15  text-white text-center cursor-pointer p-1 rounded-lg hover:bg-[#1E1C30] hover:text-[#78778B] transition">
                                     <i class="fa-solid fa-ellipsis text-xl text-center"></i>
                                 </button>
+
+                                <div class="absolute left-15 z-30 top-9 bg-[#201E34] w-30  rounded-lg border border-[#282541] dropdown-menu hidden">
+                                    <!-- Ícone -->
+                                    <div class="flex flex-col items-center py-4 gap-2">
+                                        <button>Editar</button>
+
+                                        <hr class="border-[#282541] border-dashed">
+                                        <button>Editar</button>
+                                    </div>
+
+                                    <hr class="border-[#282541] border-dashed">
+
+
+                                </div>
                             </div>
                         </td>
                     </tr>
