@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/transacoes/deletar', [TransactionControllerAlias::class, 'destroy'])->name('delete.transaction');
     Route::get('/transacoes/editar/{id}', [TransactionControllerAlias::class, 'edit'])->name('edit.transaction');
     Route::put('/transacoes/atualizar', [TransactionControllerAlias::class, 'update'])->name('update.transaction');
+    Route::put('/transacoes/atualizar-pagamento', [TransactionControllerAlias::class, 'updatePayment'])->name('update.payment.transaction');
 
 });
 

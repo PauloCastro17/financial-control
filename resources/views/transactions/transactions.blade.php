@@ -82,7 +82,7 @@
                                         <ul class="gap-3 flex flex-col text-start py-2">
                                             @if($transaction->status === "PENDING")
                                                 <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
-                                                    <a class="block w-full h-full" >Atualizar pagamento</a>
+                                                    <a class="block w-full h-full" data-action="modal" data-id-transaction="{{ $transaction->id }}" data-modal-id="#modal-update-payment-transaction">Atualizar pagamento</a>
                                                 </li>
                                             @endif
                                             <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
@@ -120,6 +120,7 @@
     @include('transactions.modals.new-transaction', ['categories' => $categories])
     @include('transactions.modals.delete-transaction')
     @include('transactions.modals.update-transaction')
+    @include('transactions.modals.update-payment-transaction')
 
     @push('scripts')
         @if ($errors->any())
@@ -167,7 +168,6 @@
                 });
 
                 //FUNÇÂO MODAL UPDATE
-
                 const modalUpdateTransaction = document.getElementById('modal-update-transaction');
                 modalUpdateTransaction.addEventListener('openModal', (e) => {
                     const btn = e.detail.btn;
@@ -201,6 +201,14 @@
                         });
                         document.querySelector('#id-transaction-modal-update-transaction').value = '';
                     }, 500);
+
+                });
+
+                //FUNÇÂO MODAL UPDATE PAYMENT
+                const modalUpdatePaymentTransaction = document.getElementById('modal-update-payment-transaction');
+                modalUpdatePaymentTransaction.addEventListener('openModal', (e) => {
+                    const btn = e.detail.btn;
+                    document.querySelector('#id-transaction-modal-update-payment-transaction').value = btn.dataset.idTransaction;
 
                 });
 

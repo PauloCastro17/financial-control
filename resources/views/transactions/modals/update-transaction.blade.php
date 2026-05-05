@@ -2,7 +2,7 @@
     <div class="w-250 bg-[#1C1A2E] rounded-lg transform scale-95 transition-all duration-300 modal-content">
 
         <div class="border-b-2 border-[#201E34] p-5 flex justify-between items-center">
-            <h1 class="text-white text-2xl font-semibold">Nova transação</h1>
+            <h1 class="text-white text-2xl font-semibold">Editar dados da transação</h1>
 
             <button data-action="closeModal" class="text-white hover:text-white/60 transition cursor-pointer"><i class="fa-solid fa-x "></i></button>
         </div>
@@ -83,9 +83,3 @@
 
     </div>
 </div>
-
-@push('scripts')
-    <script>
-
-    </script>
-@endpush

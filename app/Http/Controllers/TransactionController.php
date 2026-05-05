@@ -135,4 +135,20 @@ class TransactionController extends Controller
             'type' => 'success',
         ]);
     }
+
+    public function updatePayment(Request $request)
+    {
+
+        $updateTransaction = Transaction::query()
+            ->where('id', $request->input('id-transaction'))
+            ->update([
+                'status' => $request->input('status_payment'),
+                'transaction_date' => $request->input('date_payment')
+            ]);
+
+        return redirect()->route('site.transactions')->with('alert', [
+            'message' => "Transação atualizada com sucesso!",
+            'type' => 'success',
+        ]);
+    }
 }
