@@ -82,14 +82,11 @@
 </div>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
-        new TomSelect("#select-category",{
-            create: true,
-            sortField: {
-                field: "text"
-            }
+
         });
-    });
-</script>
+    </script>
+@endpush

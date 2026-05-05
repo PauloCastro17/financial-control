@@ -2,10 +2,12 @@ import './bootstrap';
 import ApexCharts from 'apexcharts';
 import {handleActions, openUserInfoHeader, setupClickOutside} from './functions/geral';
 import TomSelect from "tom-select";
+import Axios from 'axios';
 
 window.TomSelect = TomSelect;
 window.ApexCharts = ApexCharts;
 window.openUserInfoHeader = openUserInfoHeader;
+window.axios = Axios
 
 document.addEventListener('DOMContentLoaded', () => {
     setupClickOutside();
@@ -17,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const modal = button.closest('.modal');
         const content = modal.querySelector('div');
+
+        modal.dispatchEvent(new CustomEvent('closeModal'));
 
         modal.classList.add('opacity-0', 'pointer-events-none');
         content.classList.remove('scale-100');
@@ -34,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const clicouBotaoAbrir = e.target.closest('[data-action="modal"]');
 
         if (!clicouDentro && !clicouBotaoAbrir) {
+            modal.dispatchEvent(new CustomEvent('closeModal'));
+
             modal.classList.add('opacity-0', 'pointer-events-none');
             content.classList.remove('scale-100');
             content.classList.add('scale-95');
@@ -43,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         const button = e.target.closest('[data-action="closeAlert"]');
         if (!button) return;
+
 
         const alert = button.closest('.alert');
 

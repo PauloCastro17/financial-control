@@ -32,7 +32,7 @@ export function handleActions(){
         const actions = {
             modal: () => {
                 const target = element.dataset.modalId;
-                openModal(target);
+                openModal(target, element);
             },
             dropdown: () => {
                 openDropdown(element);
@@ -44,15 +44,23 @@ export function handleActions(){
 }
 
 
-function openModal(selector){
+function openModal(selector, btn){
     const modal = document.querySelector(selector);
     if (!modal) return
+
+    modal.dispatchEvent(new CustomEvent('openModal', {
+        detail: {btn: btn}
+    }));
 
     modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
 
     const content = modal.querySelector('.modal-content');
     content.classList.remove('scale-95');
     content.classList.add('scale-100');
+
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.classList.add('hidden');
+    });
 
 }
 
@@ -62,7 +70,9 @@ function openDropdown(e){
 
     // Fecha todos
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.classList.add('hidden');
+        if(menu !== dropdownMenu){
+            menu.classList.add('hidden');
+        }
     });
 
     dropdownMenu.classList.toggle('hidden');

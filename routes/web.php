@@ -21,5 +21,9 @@ Route::middleware(['auth'])->group(function () {
     //TRANSAÇÕES
     Route::get('/transacoes', [TransactionControllerAlias::class, 'index'])->name('site.transactions');
     Route::post('/transacoes/nova', [TransactionControllerAlias::class, 'store'])->name('create.new.transaction');
+    Route::delete('/transacoes/deletar', [TransactionControllerAlias::class, 'destroy'])->name('delete.transaction');
+    Route::get('/transacoes/editar/{id}', [TransactionControllerAlias::class, 'edit'])->name('edit.transaction');
+    Route::put('/transacoes/atualizar', [TransactionControllerAlias::class, 'update'])->name('update.transaction');
+
 });
 
