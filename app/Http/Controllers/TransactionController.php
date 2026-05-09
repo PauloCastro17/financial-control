@@ -45,7 +45,7 @@ class TransactionController extends Controller
             $idCategory = (int) $category;
         } else {
             // nova categoria
-            $newCategory = Category::create([
+            $newCategory = Category::firstOrCreate([
                 'user_id' => auth()->id(),
                 'name' => $category,
             ]);
@@ -88,8 +88,8 @@ class TransactionController extends Controller
 
         if(!$dataTransaction) {
             return redirect()->route('site.transactions')->with('alert', [
-                'message' => "Erro ao buscar dados da tr deletada com sucesso!",
-                'type' => 'success',
+                'message' => "Erro ao buscar dados da transação!",
+                'type' => 'error',
             ]);
         }
 

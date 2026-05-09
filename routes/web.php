@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\TransactionController as TransactionControllerAlias;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 //LOGIN
@@ -19,12 +20,18 @@ Route::middleware(['auth'])->group(function () {
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
     //TRANSAÇÕES
-    Route::get('/transacoes', [TransactionControllerAlias::class, 'index'])->name('site.transactions');
-    Route::post('/transacoes/nova', [TransactionControllerAlias::class, 'store'])->name('create.new.transaction');
-    Route::delete('/transacoes/deletar', [TransactionControllerAlias::class, 'destroy'])->name('delete.transaction');
-    Route::get('/transacoes/editar/{id}', [TransactionControllerAlias::class, 'edit'])->name('edit.transaction');
-    Route::put('/transacoes/atualizar', [TransactionControllerAlias::class, 'update'])->name('update.transaction');
-    Route::put('/transacoes/atualizar-pagamento', [TransactionControllerAlias::class, 'updatePayment'])->name('update.payment.transaction');
+    Route::get('/transacoes', [TransactionController::class, 'index'])->name('site.transactions');
+    Route::post('/transacoes/nova', [TransactionController::class, 'store'])->name('create.new.transaction');
+    Route::delete('/transacoes/deletar', [TransactionController::class, 'destroy'])->name('delete.transaction');
+    Route::get('/transacoes/editar/{id}', [TransactionController::class, 'edit'])->name('edit.transaction');
+    Route::put('/transacoes/atualizar', [TransactionController::class, 'update'])->name('update.transaction');
+    Route::put('/transacoes/atualizar-pagamento', [TransactionController::class, 'updatePayment'])->name('update.payment.transaction');
+    //CATEGORIAS
+    Route::get('/categorias', [CategoryController::class, 'index'])->name('site.categories');
+    Route::post('/nova-categoria', [CategoryController::class, 'store'])->name('create.new.category');
+    Route::get('/categoria/editar/{id}', [CategoryController::class, 'edit'])->name('edit.category');
+    Route::put('/categoria/atualizar', [CategoryController::class, 'update'])->name('update.category');
+    Route::delete('/categoria/deletar', [CategoryController::class, 'destroy'])->name('delete.category');
 
 });
 

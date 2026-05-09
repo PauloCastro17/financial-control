@@ -15,6 +15,7 @@ class DashboardController extends Controller
     {
         $dataChart = auth()->user()
             ->transactions()
+            ->where('status', 'PAID')
             ->selectRaw("DATE_FORMAT(transaction_date, '%Y-%m') as month,
                                     SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END) as income,
                                     SUM(CASE WHEN type = 'EXPENSE' THEN amount ELSE 0 END) as expense")
@@ -25,7 +26,7 @@ class DashboardController extends Controller
         $transactions = auth()->user()
             ->transactions()
             ->with('category')
-            ->where('status', 'COMPLETED')
+            ->where('status', 'PAID')
             ->orderBy('transaction_date', 'desc')
             ->limit(3)
             ->get();

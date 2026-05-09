@@ -24,4 +24,28 @@ class Category extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function getInitialDateAttribute(): ?string
+    {
+        if (!$this->created_at) {
+            return null;
+        }
+
+        return $this->created_at
+            ->locale('pt_BR')
+            ->translatedFormat('d M Y');
+    }
+
+    public function getFinalDateAttribute(): ?string
+    {
+        if (!$this->created_at) {
+            return null;
+        }
+
+        return $this->created_at
+            ->locale('pt_BR')
+            ->translatedFormat('H:i');
+    }
+
+
 }
