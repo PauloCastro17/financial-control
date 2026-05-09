@@ -1,30 +1,30 @@
 ## ❓Sobre o Projeto
 
 - Este projeto baseia-se em um estudo pessoal sobre o framework **Laravel**. Será um controle financeiro pessoal.
-<br><br>
+  <br><br>
 - Na versão inicial não terá uma responsividade para telas celulares ou menores, por questões organizacionais!
 
-## ✅ To-do List
-- ✅ Criação do projeto e submetido ao GitHub
-- ✅ Tela de login criada 
-- ✅ Tela de cadastro criada 
-- ✅ Funcionalidade de Login, Logout e Cadastro
-- ✅ Ajustes nas telas de login e cadastro (responsividade)
-- ✅ Sidebar lateral de telas pronto
-- ✅ Tela de Dashboard Criada
-- ✅ Tela transações feita
+## 🖼️ Imagens do projeto
 
-## ⚙️ Tecnologias utilizadas/a utilizar.
-- Laravel
-- Tailwind
-- BootsTrap Icons
-- Font Awesome Icons
-- MariaDB (banco de dados)
-
-## ⚒️ Ferramentas utilizadas/a utilizar.
-- PHPStorm (IDE)
-- DBeaver (SGBD/DBMS)
+- tela de login
+  <img src="/images-readne/LOGIN.png">
+  <br><br>
+- Tela de cadastro
+  <img src="/images-readne/REGISTRO.png">
+  <br><br>
+- Tela de dashboard
+  <img src="/images-readne/DASHBOARD.png">
+  <br><br>
+- Tela de transações
+  <img src="/images-readne/TRANSACTIONS.png">
+  <br><br>
+- Tela de categorias
+  <img src="/images-readne/CATEGORIES.png">
+  <br><br>
+- Dropdown de ações para o usuário  
+  <img src="/images-readne/DROP_PERFIL.png">
 
 ## 🚀 Comunidade Recomendada
+
 - [📷 CODA.CE](https://www.instagram.com/coda.ce/)
 - [🌐 CODA.CE](https://coda-ce.com.br/)
