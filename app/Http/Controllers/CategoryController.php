@@ -81,7 +81,8 @@ class CategoryController extends Controller
             Category::query()
                 ->where('id', $request->input('id-category'))
                 ->update([
-                    'name' => $request->input('name_update')
+                    'name' => $request->input('name_update'),
+                    'active' => 1
                 ]);
 
             return redirect()->route('site.categories')->with('alert', [
@@ -116,5 +117,28 @@ class CategoryController extends Controller
             'type' => 'success',
         ]);
 
+    }
+
+    public function updateActive(Request $request)
+    {
+        try {
+            Category::query()
+                ->where('id', $request->input('id-category'))
+                ->update([
+                    'active' => $request->input('active-category')
+                ]);
+
+            return redirect()->route('site.categories')->with('alert', [
+                'message' => "Categoria atualizada com sucesso!",
+                'type' => 'success',
+            ]);
+        } catch (QueryException $e) {
+
+            return redirect()->route('site.categories')->with('alert', [
+                'message' => "Ocorreu um erro ao atualizar a categoria!",
+                'type' => 'danger',
+            ]);
+
+        }
     }
 }

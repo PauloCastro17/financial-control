@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/categoria/editar/{id}', [CategoryController::class, 'edit'])->name('edit.category');
     Route::put('/categoria/atualizar', [CategoryController::class, 'update'])->name('update.category');
     Route::delete('/categoria/deletar', [CategoryController::class, 'destroy'])->name('delete.category');
+    Route::patch('/categoria/alterar-active', [CategoryController::class, 'updateActive'])->name('update.active.category');
 
 });
 

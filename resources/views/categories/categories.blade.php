@@ -54,10 +54,10 @@
                                 </div>
                             </td>
                             <td class="text-start border-b border-[#201E34] py-4 ">
-                                @if($category->active)
+                                @if($category->active == 1)
                                     <span class="text-[#75b798]"><i class="fa-regular fa-circle-check"></i> Ativo</span>
                                 @else
-                                    <span class="text-[#ea868f]"><i class="fa-regular fa-circle-xmark"></i> Inativo</span>
+                                    <span class="text-[#ea868f]"><i class="fa-regular fa-circle-xmark"></i> Desativado</span>
                                 @endif
 
                             <td class="text-start border-b border-[#201E34] py-4 ">
@@ -74,6 +74,15 @@
 
                                     <div class="absolute left-38 z-30 top-9 bg-[#201E34] w-38  rounded-lg border border-[#282541] dropdown-menu hidden">
                                         <ul class="gap-3 flex flex-col text-start py-2">
+
+                                            @if($category->active == 1)
+                                                <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
+                                                    <a class="block w-full h-full" data-action="modal" data-id-category="{{ $category->id }}" data-name-category="{{ $category->name }}" data-action-category="2" data-modal-id="#modal-change-action-category">Desativar</a></li>
+                                            @else
+                                                <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
+                                                    <a class="block w-full h-full" data-action="modal" data-id-category="{{ $category->id }}" data-name-category="{{ $category->name }}"  data-action-category="1" data-modal-id="#modal-change-action-category">Ativar</a></li>
+                                            @endif
+
                                             <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
                                                 <a class="block w-full h-full" data-action="modal" data-id-category="{{ $category->id }}" data-modal-id="#modal-update-category">Editar</a></li>
 
@@ -108,6 +117,7 @@
     @include('categories.modals.new-category')
     @include('categories.modals.delete-category')
     @include('categories.modals.update-category')
+    @include('categories.modals.change-active-category')
 
     @push('scripts')
 
@@ -124,8 +134,6 @@
 
                     document.querySelector('.name-category-modal-delete-category').textContent = name;
                     document.querySelector('#id-category-modal-delete-category').value = id;
-
-
                 });
 
                 //FUNÇÂO MODAL UPDATE
@@ -137,8 +145,6 @@
                     axios.get(`/categoria/editar/${id}`)
                         .then(response => {
                             const category = response.data.category;
-
-                            console.log(category.name)
 
                             document.querySelector('#id-category-modal-update-category').value = category.id;
                             document.querySelector('#name-modal-update-category').value = category.name;
@@ -155,6 +161,28 @@
                         document.querySelector('#id-category-modal-update-category').value = '';
                         document.querySelector('.name-category-modal-delete-category').value = '';
                     }, 500);
+
+                });
+
+                //FUNÇÂO MODAL UPDATE "ACTIVE" CATEGORIA
+                const modalUpdateActiveCategory = document.getElementById('modal-change-action-category');
+                modalUpdateActiveCategory.addEventListener('openModal', (e) => {
+                    const btn = e.detail.btn;
+                    const id =  btn.dataset.idCategory;
+                    const action =  btn.dataset.actionCategory;
+
+                    document.querySelector('.name-category-modal-change-action-category').textContent = btn.dataset.nameCategory;
+                    document.querySelector('#id-category-modal-change-action-category').value = id;
+                    document.querySelector('#active-category-modal-change-action-category').value = action;
+
+                    const btnModal = document.querySelector('#btn-change-active-category');
+                    if(action == 1) {
+                        btnModal.textContent = 'Ativar';
+                        btnModal.classList.add('bg-[#051B11]', 'text-[#75b798]', 'hover:text-[#75b798]/60', 'hover:text-[#75b798]/70');
+                    }else{
+                        btnModal.textContent = 'Desativar';
+                        btnModal.classList.add('bg-[#2c0b0e]', 'text-[#ea868f]', 'hover:bg-[#2c0b0e]/60', 'hover:text-[#ea868f]/70');
+                    }
 
                 });
 
