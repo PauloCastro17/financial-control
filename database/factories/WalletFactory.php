@@ -19,6 +19,9 @@ class WalletFactory extends Factory
     {
         return [
             //
+            'name' => fake()->randomElement(["NAME", "NAME2", "NAME3", "NAME4", "NAME5"]),
+            'type' => fake()->randomElement(["TYPE", "TYPE2", "TYPE3", "TYPE4", "TYPE5"]),
+            'balance' => fake()->randomFloat(2, 10, 1000),
         ];
     }
 }
