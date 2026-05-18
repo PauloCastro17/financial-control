@@ -6,7 +6,7 @@
 
             <button data-action="closeModal" class="text-white hover:text-white/60 transition cursor-pointer"><i class="fa-solid fa-x "></i></button>
         </div>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('delete.wallet') }}">
             @csrf
             @method('DELETE')
 

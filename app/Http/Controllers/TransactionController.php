@@ -74,7 +74,7 @@ class TransactionController extends Controller
     {
         $idTransaction = $request->input('id-transaction');
 
-        Transaction::query()->where('id', $idTransaction)->delete();
+        Transaction::query()->where('id', $idTransaction)->update(['status' => 2]);;
 
         return redirect()->route('site.transactions')->with('alert', [
             'message' => "Transação deletada com sucesso!",

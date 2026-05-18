@@ -72,4 +72,16 @@ class WalletController extends Controller
             'type' => 'success',
         ]);
     }
+
+    public function destroy(Request $request)
+    {
+        $idCategory = $request->input('id-wallet');
+
+        Wallet::query()->where('id', $idCategory)->update(['status' => 2]);
+
+        return redirect()->route('site.wallets')->with('alert', [
+            'message' => "Carteira deletada com sucesso!",
+            'type' => 'success',
+        ]);
+    }
 }

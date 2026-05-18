@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/carteiras/nova', [WalletController::class, 'store'])->name('create.new.wallet');
     Route::get('/carteiras/editar/{id}', [WalletController::class, 'edit'])->name('edit.wallet');
     Route::put('/carteiras/atualizar', [WalletController::class, 'update'])->name('update.wallet');
+    Route::delete('/carteiras/deletar', [WalletController::class, 'destroy'])->name('delete.wallet');
 
 });
 
