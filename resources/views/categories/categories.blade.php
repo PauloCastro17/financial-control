@@ -59,7 +59,7 @@
                                 @else
                                     <span class="text-[#ea868f]"><i class="fa-regular fa-circle-xmark"></i> Desativado</span>
                                 @endif
-
+                            </td>
                             <td class="text-start border-b border-[#201E34] py-4 ">
                                 <p class="text-white">{{ $category->initial_date }}</p>
                                 <p class="text-[#78778B]">às {{ $category->final_date }}</p>
@@ -176,7 +176,7 @@
                     document.querySelector('#active-category-modal-change-action-category').value = action;
 
                     const btnModal = document.querySelector('#btn-change-active-category');
-                    if(action == 1) {
+                    if(action === "1") {
                         btnModal.textContent = 'Ativar';
                         btnModal.classList.add('bg-[#051B11]', 'text-[#75b798]', 'hover:text-[#75b798]/60', 'hover:text-[#75b798]/70');
                     }else{

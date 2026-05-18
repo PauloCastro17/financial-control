@@ -24,6 +24,13 @@
                 </div>
             </a>
 
+            <a href="{{ route('site.wallets') }}">
+                <div class="text-[#929EAE] w-44 p-3 rounded-md hover:bg-[#C8EE44] hover:text-[#1B212D] cursor-pointer transition {{ !empty($subPagMenu) && $subPagMenu === "wallets" ? "active-btn-sidebar" : ""  }}">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span  class=" font-bold">Carteiras</span>
+                </div>
+            </a>
+
 
         </nav>
     </div>

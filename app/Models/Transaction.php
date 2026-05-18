@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use \Carbon\Carbon;
 
-#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date', 'user_id', 'status'])]
+#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date', 'user_id', 'status', 'status_transaction'])]
 class Transaction extends Model
 {
     /** @use HasFactory<TransactionFactory> */
@@ -72,7 +72,7 @@ class Transaction extends Model
 
     public function getStatusTransactionAttribute(): string
     {
-        return match ($this->status) {
+        return match ($this->status_transaction) {
             'COMPLETED', 'PAID' => 'Pago',
             'PENDING' => 'Pendente',
             'UNPAID' => 'Não Pago',
@@ -82,7 +82,7 @@ class Transaction extends Model
 
     public function getStatusColorTransactionAttribute(): string
     {
-        return match ($this->status) {
+        return match ($this->status_transaction) {
             'COMPLETED', 'PAID' => "bg-[#1A3131] text-[#29A073]",
             'PENDING' => "bg-[#30292F] text-[#F2994A]",
             default => "bg-[#442121] text-[#E5363D]"

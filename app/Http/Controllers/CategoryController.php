@@ -16,6 +16,7 @@ class CategoryController extends Controller
 
         $categories = auth()->user()
             ->categories()
+            ->whereIn('status', [0, 1])
             ->orderBy('created_at', 'desc')
             ->when($search, function ($query) use ($search) {
                 $query->where('name', 'LIKE', "%{$search}%");
@@ -80,6 +81,7 @@ class CategoryController extends Controller
         try {
             Category::query()
                 ->where('id', $request->input('id-category'))
+                ->whereIn('status', [0, 1])
                 ->update([
                     'name' => $request->input('name_update'),
                     'active' => 1
@@ -124,6 +126,7 @@ class CategoryController extends Controller
         try {
             Category::query()
                 ->where('id', $request->input('id-category'))
+                ->whereIn('status', [0, 1])
                 ->update([
                     'active' => $request->input('active-category')
                 ]);

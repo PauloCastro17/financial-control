@@ -23,7 +23,8 @@ return new class extends Migration
             $table->foreignIdFor(Wallet::class)->constrained()->cascadeOnDelete(); //criar wallet_id para referenciar qual a conta
             $table->string('description');
             $table->dateTime('transaction_date')->nullable();
-            $table->string('status'); //pending, completed, failed
+            $table->string('status_transaction'); //pending, completed, failed
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->float('balance');
             $table->string('type');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

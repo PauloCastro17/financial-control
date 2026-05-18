@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
 
 //LOGIN
@@ -33,6 +34,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/categoria/atualizar', [CategoryController::class, 'update'])->name('update.category');
     Route::delete('/categoria/deletar', [CategoryController::class, 'destroy'])->name('delete.category');
     Route::patch('/categoria/alterar-active', [CategoryController::class, 'updateActive'])->name('update.active.category');
+    //CARTEIRAS
+    Route::get('/carteiras', [WalletController::class, 'index'])->name('site.wallets');
+    Route::post('/carteiras/nova', [WalletController::class, 'store'])->name('create.new.wallet');
+    Route::get('/carteiras/editar/{id}', [WalletController::class, 'edit'])->name('edit.wallet');
+    Route::put('/carteiras/atualizar', [WalletController::class, 'update'])->name('update.wallet');
 
 });
 

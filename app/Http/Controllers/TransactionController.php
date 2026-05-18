@@ -14,12 +14,13 @@ class TransactionController extends Controller
     //
     public function index(Request $request) :View
     {
-
         $search = trim($request->input('search'));
 
         $transactions = auth()->user()
             ->transactions()
             ->with('category')
+            ->whereIn('status', [0, 1])
+
             ->orderBy('created_at', 'desc')
             ->when($search, function ($query) use ($search) {
                 $query->whereHas('category', function ($q) use ($search) {
@@ -57,7 +58,7 @@ class TransactionController extends Controller
             'user_id' => auth()->user()->id,
             'type' => $request->input('type'),
             'amount' => $request->input('amount'),
-            'status' => 'PENDING',
+            'status_transaction' => 'PENDING',
             'category_id' => $idCategory,
             'description' => "TESE"
         ]);
@@ -125,7 +126,7 @@ class TransactionController extends Controller
             'user_id' => auth()->user()->id,
             'type' => $request->input('type_update'),
             'amount' => $request->input('amount_update'),
-            'status' => 'PENDING',
+            'status_transaction' => 'PENDING',
             'category_id' => $idCategory,
             'description' => "TESE"
         ]);
@@ -142,7 +143,7 @@ class TransactionController extends Controller
         $updateTransaction = Transaction::query()
             ->where('id', $request->input('id-transaction'))
             ->update([
-                'status' => $request->input('status_payment'),
+                'status_transaction' => $request->input('status_payment'),
                 'transaction_date' => $request->input('date_payment')
             ]);
 

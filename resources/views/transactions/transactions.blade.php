@@ -80,7 +80,7 @@
 
                                     <div class="absolute left-15 z-30 top-9 bg-[#201E34] w-38  rounded-lg border border-[#282541] dropdown-menu hidden">
                                         <ul class="gap-3 flex flex-col text-start py-2">
-                                            @if($transaction->status === "PENDING")
+                                            @if($transaction->status_transaction === "PENDING")
                                                 <li class="text-sm text-white hover:bg-[#78778B]/20  transition pl-2 py-1 cursor-pointer">
                                                     <a class="block w-full h-full" data-action="modal" data-id-transaction="{{ $transaction->id }}" data-modal-id="#modal-update-payment-transaction">Atualizar pagamento</a>
                                                 </li>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('name')->unique();
             $table->boolean('active')->default(true);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
