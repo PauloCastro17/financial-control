@@ -1,4 +1,10 @@
+@session('alert')
+    <div class="pt-3">
+        <x-alert :message="session('alert.message')" :type="session('alert.type')"/>
+    </div>
+@endsession
 <x-auth-layout>
+
     <div class="xl:pl-32 xl:pt-14 sm:p-12">
         <img class="w-32 " src="{{ asset('/images/logo.svg') }}" alt="logo_site" />
     </div>

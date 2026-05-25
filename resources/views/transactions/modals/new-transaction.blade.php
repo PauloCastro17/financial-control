@@ -33,6 +33,26 @@
                 </div>
 
                 <div class="flex flex-col text-white gap-2">
+                    <label class="font-bold" for="select-wallet">Carteira</label>
+                    <select name="wallet" id="select-wallet" required>
+                        @if($wallets->isEmpty())
+                            <option value="" disabled selected>Sem carteiras cadastradas</option>
+                        @else
+                            <option value="">Escolha a carteira...</option>
+                            @foreach($wallets as $wallet)
+                                <option value="{{ $wallet->id }}">{{ $wallet->name }}</option>
+                            @endforeach
+                        @endif
+
+                    </select>
+                    @error('wallet')
+                    <span class="text-md text-red-400">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+                <div class="flex flex-col text-white gap-2">
                     <label class="font-bold" for="type">Tipo (Entrada/Saída)</label>
                     <div>
                         <input name="type" type="radio" value="INCOME" required/>

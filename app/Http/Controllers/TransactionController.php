@@ -29,9 +29,10 @@ class TransactionController extends Controller
             })
             ->get();
 
-        $categories = auth()->user()->categories()->get();
+        $categories = auth()->user()->categories()->whereIn('status', [0, 1])->get();
+        $wallets = auth()->user()->wallets()->whereIn('status', [0, 1])->get();
 
-        return view('transactions.transactions', compact('transactions', 'categories'));
+        return view('transactions.transactions', compact('transactions', 'categories',  'wallets'));
     }
 
     public function store(Request $request)
@@ -74,7 +75,7 @@ class TransactionController extends Controller
     {
         $idTransaction = $request->input('id-transaction');
 
-        Transaction::query()->where('id', $idTransaction)->update(['status' => 2]);;
+        Transaction::query()->where('id', $idTransaction)->whereIn('status', [0, 1])->update(['status' => 2]);;
 
         return redirect()->route('site.transactions')->with('alert', [
             'message' => "Transação deletada com sucesso!",
@@ -122,6 +123,7 @@ class TransactionController extends Controller
 
         $updateTransaction = Transaction::query()
             ->where('id', $request->input('id-transaction'))
+            ->whereIn('status', [0, 1])
             ->update([
             'user_id' => auth()->user()->id,
             'type' => $request->input('type_update'),
@@ -142,6 +144,7 @@ class TransactionController extends Controller
 
         $updateTransaction = Transaction::query()
             ->where('id', $request->input('id-transaction'))
+            ->whereIn('status', [0, 1])
             ->update([
                 'status_transaction' => $request->input('status_payment'),
                 'transaction_date' => $request->input('date_payment')

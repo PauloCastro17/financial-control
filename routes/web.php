@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WalletController;
+use App\Http\Middleware\UserCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //LOGIN
@@ -17,7 +18,7 @@ Route::get('/sair', [LoginController::class, 'logout'])->name('auth.logout');
 Route::get('/criar-usuario', [RegisterController::class, 'index'])->name('register');
 Route::post('/novo-usuario', [RegisterController::class, 'store'])->name('auth.register');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', UserCheckMiddleware::class])->group(function () {
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
     //TRANSAÇÕES

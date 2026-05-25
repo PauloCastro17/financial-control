@@ -61,6 +61,7 @@ class WalletController extends Controller
     {
         Wallet::query()
             ->where('id', $request->input('id-wallet'))
+            ->whereIn('status', [0, 1])
             ->update([
                 'name' => $request->input('name_update'),
                 'balance' => $request->input('balance_update'),
@@ -77,7 +78,10 @@ class WalletController extends Controller
     {
         $idCategory = $request->input('id-wallet');
 
-        Wallet::query()->where('id', $idCategory)->update(['status' => 2]);
+        Wallet::query()
+            ->where('id', $idCategory)
+            ->whereIn('status', [0, 1])
+            ->update(['status' => 2]);
 
         return redirect()->route('site.wallets')->with('alert', [
             'message' => "Carteira deletada com sucesso!",

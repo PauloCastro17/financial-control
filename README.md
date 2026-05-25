@@ -21,6 +21,9 @@
 - Tela de categorias
   <img src="/images-readne/CATEGORIES.png">
   <br><br>
+- Tela de carteiras
+    <img src="/images-readne/WALLETS.png">
+    <br><br>
 - Dropdown de ações para o usuário  
   <img src="/images-readne/DROP_PERFIL.png">
 

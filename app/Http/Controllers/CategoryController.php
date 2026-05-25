@@ -112,7 +112,7 @@ class CategoryController extends Controller
     {
         $idCategory = $request->input('id-category');
 
-        Category::query()->where('id', $idCategory)->update(['status' => 2]);;
+        Category::query()->where('id', $idCategory)->whereIn('status', [0, 1])->update(['status' => 2]);;
 
         return redirect()->route('site.categories')->with('alert', [
             'message' => "Categoria deletada com sucesso!",

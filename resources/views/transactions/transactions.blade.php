@@ -117,7 +117,7 @@
 
     </main>
 
-    @include('transactions.modals.new-transaction', ['categories' => $categories])
+    @include('transactions.modals.new-transaction', ['categories' => $categories, 'wallets' => $wallets])
     @include('transactions.modals.delete-transaction')
     @include('transactions.modals.update-transaction')
     @include('transactions.modals.update-payment-transaction')
@@ -138,6 +138,13 @@
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 new TomSelect("#select-category",{
+                    create: true,
+                    sortField: {
+                        field: "text"
+                    }
+                });
+
+                new TomSelect("#select-wallet",{
                     create: true,
                     sortField: {
                         field: "text"
