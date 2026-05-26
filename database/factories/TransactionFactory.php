@@ -24,7 +24,7 @@ class TransactionFactory extends Factory
             'amount' => fake()->randomFloat(2, 10, 1000),
             'description' => fake()->realText(50),
             'transaction_date' => fake()->dateTimeBetween('2026-01-01', 'now'),
-            'status' => fake()->randomElement(["PENDING", "COMPLETED"]),
+            'status_transaction' => fake()->randomElement(["PENDING", "COMPLETED"]),
             'category_id' => Category::query()->inRandomOrder()->first()->id
         ];
     }

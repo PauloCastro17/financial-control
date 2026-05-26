@@ -37,7 +37,7 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        $category = $request->input('category') ;
+        $category = $request->input('category');
 
         $newCategory = null;
         $idCategory = 0;
@@ -46,13 +46,22 @@ class TransactionController extends Controller
             // já é uma categoria existente
             $idCategory = (int) $category;
         } else {
-            // nova categoria
-            $newCategory = Category::firstOrCreate([
-                'user_id' => auth()->id(),
-                'name' => $category,
-            ]);
+            $category = null;
 
-            $idCategory = $newCategory->id;
+            $category = auth()->user()
+                ->categories()
+                ->where('name', $request->input('category'))
+                ->whereIn('status', [0, 1])
+                ->first();
+
+            if (!$category) {
+                $category = Category::create([
+                    'user_id' => auth()->id(),
+                    'name' => $request->input('category'),
+                ]);
+            }
+
+            $idCategory = $category->id;
         }
 
         $newTransaction = Transaction::query()->create([
@@ -61,7 +70,8 @@ class TransactionController extends Controller
             'amount' => $request->input('amount'),
             'status_transaction' => 'PENDING',
             'category_id' => $idCategory,
-            'description' => "TESE"
+            'wallet_id' => $request->input('wallet'),
+            'description' => "TESTE"
         ]);
 
         return redirect()->route('site.transactions')->with('alert', [
@@ -130,6 +140,7 @@ class TransactionController extends Controller
             'amount' => $request->input('amount_update'),
             'status_transaction' => 'PENDING',
             'category_id' => $idCategory,
+            'wallet_id' => $request->input('wallet_update'),
             'description' => "TESE"
         ]);
 

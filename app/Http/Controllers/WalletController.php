@@ -28,6 +28,19 @@ class WalletController extends Controller
 
     public function store(Request $request)
     {
+        $exists = auth()->user()
+            ->wallets()
+            ->where('name', $request->input('name'))
+            ->whereIn('status', [0, 1])
+            ->exists();
+
+        if($exists) {
+            return redirect()->route('site.categories')->with('alert', [
+                'message' => "Carteira já cadastrada no sistema!",
+                'type' => 'error',
+            ]);
+        }
+
         Wallet::query()->create([
             'name' => $request->input('name'),
             'balance' => $request->input('balance'),

@@ -17,7 +17,7 @@
 
                 <div class="flex flex-col items-center">
                     <p class="text-[#929EAE] font-semibold ">Saldo Total</p>
-                    <p class=" font-semibold text-white">$0</p>
+                    <p class=" font-semibold text-white">{{ number_format($finalBalance, 2, ',', '.') }}</p>
                 </div>
             </div>
             <!--Gastos totais-->
@@ -28,7 +28,7 @@
 
                 <div class="flex flex-col items-center">
                     <p class="text-[#929EAE] font-semibold ">Gastos totais</p>
-                    <p class=" font-semibold text-white">$0</p>
+                    <p class=" font-semibold text-white">{{ number_format($allExpenseTransactions, 2, ',', '.') }}</p>
                 </div>
             </div>
             <!--Total economizado-->
@@ -38,8 +38,8 @@
                         class="fa-solid fa-money-check-dollar "></i></span>
 
                 <div class="flex flex-col items-center">
-                    <p class="text-[#929EAE] font-semibold ">Total economizado</p>
-                    <p class=" font-semibold text-white">$0</p>
+                    <p class="text-[#929EAE] font-semibold ">Ganhos totais</p>
+                    <p class=" font-semibold text-white">{{ number_format($allIncomeTransactions, 2, ',', '.') }}</p>
                 </div>
             </div>
 

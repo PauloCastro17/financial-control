@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use \Carbon\Carbon;
 
-#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date', 'user_id', 'status', 'status_transaction'])]
+#[Fillable(['type', 'amount', 'category_id', 'description', 'transaction_date', 'user_id', 'status_transaction', 'wallet_id'])]
 class Transaction extends Model
 {
     /** @use HasFactory<TransactionFactory> */
@@ -37,6 +37,11 @@ class Transaction extends Model
     public function category() :BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function wallet() :BelongsTo
+    {
+        return $this->belongsTo(Wallet::class);
     }
 
     public function getInitialDateAttribute(): ?string
@@ -70,8 +75,12 @@ class Transaction extends Model
         };
     }
 
-    public function getStatusTransactionAttribute(): string
+    public function getStatusTransactionTranslateAttribute(): ?string
     {
+        if (!$this->status_transaction) {
+            return null;
+        }
+
         return match ($this->status_transaction) {
             'COMPLETED', 'PAID' => 'Pago',
             'PENDING' => 'Pendente',
@@ -80,8 +89,12 @@ class Transaction extends Model
         };
     }
 
-    public function getStatusColorTransactionAttribute(): string
+    public function getStatusColorTransactionAttribute(): ?string
     {
+        if (!$this->status_transaction) {
+            return null;
+        }
+
         return match ($this->status_transaction) {
             'COMPLETED', 'PAID' => "bg-[#1A3131] text-[#29A073]",
             'PENDING' => "bg-[#30292F] text-[#F2994A]",

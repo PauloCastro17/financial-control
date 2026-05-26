@@ -34,11 +34,12 @@
                 <thead class="text-[#78778B] uppercase">
                 <tr>
                     <th class="py-3 w-[35%] text-start">Nome da transação</th>
+                    <th class="py-3 w-[20%] text-start">Carteira</th>
                     <th class="py-3 w-[20%] text-start">Tipo</th>
                     <th class="py-3 w-[20%] text-start">Valor</th>
                     <th class="py-3 w-[20%] text-start">Status</th>
                     <th class="py-3 w-[25%] text-start">Data da transação</th>
-                    <th class="py-3 w-[17%] text-center">Ações</th>
+                    <th class="py-3 w-[20%] text-center">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,19 +57,23 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-start border-b border-[#201E34] py-4 text-[#78778B]">{{ $transaction->type_transaction }}</td>
-                            <td class="text-start border-b border-[#201E34] py-4 text-white">
+                            <td class="text-start border-b border-[#201E34] py-4 ">
+                                <p class="text-[#78778B]">{{ $transaction->wallet->name }}</p>
+                            </td>
+                            <td class="text-start border-b border-[#201E34] py-4 text-white">{{ $transaction->type_transaction }}</td>
+                            <td class="text-start border-b border-[#201E34] py-4 text-[#78778B]">
                                 R$ {{ number_format($transaction->amount, 2, ',', '.') }}</td>
                             <td class="text-start border-b border-[#201E34] py-4 ">
-                                <div
-                                    class="w-[60%] p-3 rounded-lg text-center font-medium {{ $transaction->status_color_transaction }}">{{ $transaction->status_transaction }}</div>
+                                <div class="w-[60%] p-3 rounded-lg text-center font-medium {{ $transaction->status_color_transaction }}">
+                                    {{ $transaction->status_transaction_translate }}
+                                </div>
                             </td>
                             <td class="text-start border-b border-[#201E34] py-4 ">
                                 @if(!is_null($transaction->transaction_date ))
                                     <p class="text-white">{{ $transaction->initial_date }}</p>
                                     <p class="text-[#78778B]">às {{ $transaction->final_date }}</p>
                                 @else
-                                    <p class="text-[#78778B]">Pagamento pendente!</p>
+                                    <p class="text-white">Pagamento pendente!</p>
                                 @endif
                             </td>
                             <td class=" border-b border-[#201E34] py-4 text-center text-3xl">

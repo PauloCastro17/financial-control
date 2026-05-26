@@ -31,6 +31,19 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         try {
+            $exists = auth()->user()
+                ->categories()
+                ->where('name', $request->input('name'))
+                ->whereIn('status', [0, 1])
+                ->exists();
+
+            if($exists) {
+                return redirect()->route('site.categories')->with('alert', [
+                    'message' => "Categoria já cadastrada no sistema!",
+                    'type' => 'error',
+                ]);
+            }
+
             Category::query()->create([
                 'user_id' => auth()->id(),
                 'name' => $request->input('name'),

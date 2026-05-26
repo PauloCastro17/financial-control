@@ -25,7 +25,7 @@ class DashboardController extends Controller
 
         $transactions = auth()->user()
             ->transactions()
-            ->with('category')
+            ->with(['category', 'wallet'])
             ->where('status_transaction', 'PAID')
             ->whereIn('status', [0, 1])
             ->orderBy('transaction_date', 'desc')
@@ -36,7 +36,27 @@ class DashboardController extends Controller
         $income = $dataChart->pluck('income');
         $expense = $dataChart->pluck('expense');
 
-        return view('dashboard.dashboard', compact('months', 'income', 'expense', 'transactions'));
+        $allExpenseTransactions = auth()->user()
+            ->transactions()
+            ->where('status_transaction', 'PAID')
+            ->where('type', 'EXPENSE')
+            ->sum('amount');
+
+        $allIncomeTransactions = auth()->user()
+            ->transactions()
+            ->where('status_transaction', 'PAID')
+            ->where('type', 'INCOME')
+            ->sum('amount');
+
+        $allValuesWallets = auth()->user()
+            ->wallets()
+            ->whereIn('status', [0, 1])
+            ->sum('balance');
+
+        $finalBalance = ($allValuesWallets + $allIncomeTransactions) - $allExpenseTransactions;
+
+
+        return view('dashboard.dashboard', compact('months', 'income', 'expense', 'transactions', 'allExpenseTransactions', 'allIncomeTransactions', 'finalBalance'));
 
     }
 
