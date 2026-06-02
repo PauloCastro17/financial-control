@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
 use App\Http\Middleware\UserCheckMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,10 @@ Route::get('/criar-usuario', [RegisterController::class, 'index'])->name('regist
 Route::post('/novo-usuario', [RegisterController::class, 'store'])->name('auth.register');
 
 Route::middleware(['auth', UserCheckMiddleware::class])->group(function () {
+
+    Route::get('/teste', function () {
+        return view('teste');
+    });
     //DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('site.dashboard');
     //TRANSAÇÕES
@@ -41,6 +46,9 @@ Route::middleware(['auth', UserCheckMiddleware::class])->group(function () {
     Route::get('/carteiras/editar/{id}', [WalletController::class, 'edit'])->name('edit.wallet');
     Route::put('/carteiras/atualizar', [WalletController::class, 'update'])->name('update.wallet');
     Route::delete('/carteiras/deletar', [WalletController::class, 'destroy'])->name('delete.wallet');
+    //PEFIL
+    Route::get('/meu-perfil', [UserController::class, 'index'])->name('site.profile');
+    Route::put('/atualizar-perfil', [UserController::class, 'update'])->name('profile.update');
 
 });
 

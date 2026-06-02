@@ -24,6 +24,12 @@
 - Tela de carteiras
     <img src="/images-readne/WALLETS.png">
     <br><br>
+- Tela de perfil
+    <img src="/images-readne/PROFILE.png">
+    <br><br>
+- Exemplos de alertas do sistema  
+  <img src="/images-readne/ALERTS.png">
+  <br><br>
 - Dropdown de ações para o usuário  
   <img src="/images-readne/DROP_PERFIL.png">
 

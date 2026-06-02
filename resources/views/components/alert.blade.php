@@ -5,7 +5,7 @@
             <p class="text-lg leading-tight">{{ $message }}</p>
         </div>
 
-        <button data-action="closeAlert" class=" hover:text-white/60 transition cursor-pointer mr-3"><i class="fa-solid fa-x "></i></button>
+        <button type="button" data-action="closeAlert" class=" hover:text-white/60 transition cursor-pointer mr-3"><i class="fa-solid fa-x "></i></button>
     </div>
 
 </div>

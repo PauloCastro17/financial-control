@@ -21,7 +21,7 @@
 
                 <hr class="border-[#282541] border-dashed">
 
-                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition text-white ">
+                    <a href="{{ route('site.profile') }}" class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition text-white ">
                         <i class="fa-solid fa-user"></i>
                         <span>Meu perfil</span>
                     </a>
