@@ -28,8 +28,12 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email'=> 'Credenciais Inválidas'
-        ]);
+            'email'=> 'Credenciais Inválidas',
+            'password'=> 'Credenciais Inválidas'
+        ])->with('alert', [
+            'message' => "Usuário inativo/excluído! Consulte o suporte!",
+            'type' => 'error',
+        ]);;
 
     }
 

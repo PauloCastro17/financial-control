@@ -26,11 +26,6 @@
                         <span>Meu perfil</span>
                     </a>
 
-                    <a class="flex px-3 py-2 my-3 items-center gap-2 hover:bg-sky-200/20 cursor-pointer text-sm transition text-white">
-                        <i class="fa-solid fa-gear"></i>
-                        <span>Configurações</span>
-                    </a>
-
                 <hr class="border-[#282541]">
 
                 <div class="px-3 py-1 my-3 flex justify-center text-center ">
