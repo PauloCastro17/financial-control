@@ -1,14 +1,18 @@
 <x-base-layout sub-pag-menu="dashboard">
 
     <main class="w-full ">
-        @session('success')
-        <p>{{ session('success') }}</p>
-        @endsession
 
         <x-header pag-menu="Dashboard"/>
 
+        @session('alert')
+        <div class="mb-4">
+            <x-alert :message="session('alert.message')" :type="session('alert.type')"/>
+        </div>
+        @endsession
+
         <!--CARDS INICIAIS-->
         <section class=" flex w-full gap-8">
+
             <!--Saldo Total-->
             <div
                 class="ml-5 bg-[#201E34] w-1/3 h-32 rounded-xl flex justify-center items-center gap-3 card-dashboard cursor-pointer transition">

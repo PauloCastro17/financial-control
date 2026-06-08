@@ -1,4 +1,4 @@
-<div class="px-7 flex justify-center items-center alert">
+<div class="px-5 flex justify-center items-center alert">
     <div class="{{ $ColorClasses() }} w-full rounded-lg flex justify-between p-5">
         <div class="flex items-center gap-2">
             <i class="{{ $IconClasses() }} text-lg"></i>

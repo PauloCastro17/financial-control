@@ -27,6 +27,8 @@
         @session('alert')
         <x-alert :message="session('alert.message')" :type="session('alert.type')"/>
         @endsession
+
+
         <section class=" max-w-[95%] ml-7 mb-5 flex justify-center items-center">
 
 

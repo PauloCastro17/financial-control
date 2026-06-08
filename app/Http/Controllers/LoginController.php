@@ -24,7 +24,10 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('site.dashboard'));
+            return redirect()->intended(route('site.dashboard'))->with('alert', [
+                'message' => "Seja bem-vindo(a), " . auth()->user()->name . "!",
+                'type' => 'success',
+            ]);
         }
 
         return back()->withErrors([
