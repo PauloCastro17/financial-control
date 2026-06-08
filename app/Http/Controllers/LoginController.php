@@ -33,7 +33,7 @@ class LoginController extends Controller
         ])->with('alert', [
             'message' => "Usuário inativo/excluído! Consulte o suporte!",
             'type' => 'error',
-        ]);;
+        ]);
 
     }
 
