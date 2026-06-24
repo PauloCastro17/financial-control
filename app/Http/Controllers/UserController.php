@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -19,6 +18,16 @@ class UserController extends Controller
     public function update(Request $request)
     {
         try {
+
+
+            if ($request->hasFile('photo')) {
+                // arquivo existe
+                $path = $request->file('photo')->store('users/photos', 'public');
+            }else{
+                $path = $request->input('old_photo') ?? null;
+            }
+
+
             User::query()
                 ->where('id', $request->input('id'))
                 ->whereIn('status', [0, 1])
@@ -26,6 +35,7 @@ class UserController extends Controller
                     'name' => $request->input('name'),
                     'dateofbirth' => $request->input('date'),
                     'phone' => $request->input('phone'),
+                    'photo' => $path,
                 ]);
 
             return redirect()->route('site.profile')->with('alert', [
@@ -34,6 +44,9 @@ class UserController extends Controller
             ]);
         }
         catch (QueryException $e) {
+
+            dd($e->getMessage());
+
             return redirect()->route('site.profile')->with('alert', [
                 'message' => "Ocorreu um erro ao atualizar o usuário!",
                 'type' => 'danger',

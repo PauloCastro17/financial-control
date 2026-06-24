@@ -7,7 +7,7 @@
         <div class="relative">
             <!--PERFIL-->
             <button class="flex items-center gap-2 bg-[#201E34] rounded-full p-2 cursor-pointer transition" id="btn-user-info" onclick="openUserInfoHeader()">
-                <img class="w-12" src="{{ asset("/images/user_photo.png") }}" alt="user_photo">
+                <img class="w-15 h-15 object-cover rounded-full" src="{{ asset("/storage/".auth()->user()->photo) ?? asset("/images/user_photo.png") }}" alt="user_photo">
             </button>
 
             <!--BARRA PERFIL-->
@@ -15,7 +15,7 @@
                 <!-- Ícone -->
                 <i class="fa-solid fa-caret-up text-4xl absolute -top-5 right-0 text-[#201E34]"></i>
                 <div class="flex flex-col items-center py-4 gap-2">
-                    <img class="w-15" src="{{ asset("/images/user_photo.png") }}" alt="user_photo">
+                    <img class="w-15 h-15 object-cover rounded-full" src="{{ asset("/storage/".auth()->user()->photo) ?? asset("/images/user_photo.png") }}" alt="user_photo">
                     <span class="wrap-anywhere text-center w-52 text-white" title="{{ auth()->user()->name }}">{{ auth()->user()->name }}</span>
                 </div>
 
