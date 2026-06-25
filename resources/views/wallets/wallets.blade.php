@@ -17,9 +17,9 @@
             </div>
 
             <button data-action="modal" data-modal-id="#modal-new-wallet"
-                    class="bg-[#C8EE44] text-[#1B212D] mr-10 flex items-center p-4 rounded-lg gap-2 w-54 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition">
-                <i class="fa-solid fa-wallet text-xl"></i>
-                <p class="text-xl font-semibold">Criar carteira</p>
+                    class="bg-[#C8EE44] text-[#1B212D] mr-5 flex items-center p-3 rounded-lg gap-2 w-46 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition">
+                <i class="fa-solid fa-wallet text-lg"></i>
+                <p class="text-lg font-semibold">Criar carteira</p>
             </button>
         </article>
 

@@ -16,11 +16,20 @@
                 </form>
             </div>
 
-            <button data-action="modal" data-modal-id="#modal-new-transaction"
-                    class="bg-[#C8EE44] text-[#1B212D] mr-10 flex items-center p-4 rounded-lg gap-2 w-54 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition">
-                <i class="fa-solid fa-money-check-dollar text-xl "></i>
-                <p class="text-xl font-semibold">Criar transação</p>
-            </button>
+            <div class="flex gap-2 mr-5">
+                <button data-action="modal" data-modal-id="#modal-new-transaction"
+                        class="bg-[#C8EE44] text-[#1B212D]  flex items-center p-3 rounded-lg gap-2 w-46 hover:bg-[#A0B84B] hover:text-[#1B212D] cursor-pointer transition">
+                    <i class="fa-solid fa-money-check-dollar text-lg"></i>
+                    <p class="font-semibold text-lg">Criar transação</p>
+                </button>
+
+                <button data-action="modal" data-modal-id="#modal-new-transaction"
+                        class="border border-[#C8EE44] text-white  flex items-center p-3 rounded-lg gap-2 w-46 hover:bg-[#A0B84B] hover:text-[#1B212D]  cursor-pointer transition">
+                    <i class="fa-solid fa-file-import text-lg"></i>
+                    <p class="font-semibold text-lg">Importar CSV</p>
+                </button>
+
+            </div>
         </article>
 
 
